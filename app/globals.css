@@ -1,0 +1,497 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* VAM VALTRIX Brand */
+  --brand-teal:       #17A2B8;
+  --brand-teal-light: #D1F2F7;
+  --brand-teal-dark:  #0D7A8C;
+  --brand-navy:       #2C3E50;
+
+  --background: #FFFFFF;
+  --background-secondary: #F8FAFB;
+  --background-tertiary: #F3F4F6;
+
+  --foreground: #1A1A1A;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  --primary: #17A2B8;
+  --primary-foreground: #FFFFFF;
+  --primary-50:  #E6F7FA;
+  --primary-100: #D1F2F7;
+
+  --border: #E5E7EB;
+  --input:  #E5E7EB;
+  --ring:   #17A2B8;
+  --radius: 0.625rem;
+
+  /* shadcn compat */
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --secondary: #F8FAFB;
+  --secondary-foreground: #2C3E50;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #D1F2F7;
+  --accent-foreground: #1A1A1A;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter, 'Inter', 'system-ui', '-apple-system', 'sans-serif');
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Prevent layout thrash from box-sizing changes */
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent font size inflation on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Prevent CLS from scrollbar appearing */
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    /* Disable default smooth scroll since Lenis handles it */
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-white text-foreground antialiased;
+    font-family: var(--font-inter, 'Inter', system-ui, -apple-system, sans-serif);
+    background-color: #FFFFFF;
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+  }
+
+  /* Optimize all sections for scroll performance */
+  main {
+    contain: layout style;
+  }
+
+  /* Remove default focus outline jank — use ring utilities instead */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Smooth image rendering */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Prevent image jank during scroll */
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a, button, input, textarea, select {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #17A2B8;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0D7A8C;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #17A2B8, #0D7A8C);
+  }
+  .brand-shadow {
+    box-shadow: 0 4px 20px -4px rgba(23, 162, 184, 0.15);
+  }
+  .brand-shadow-lg {
+    box-shadow: 0 10px 40px -10px rgba(23, 162, 184, 0.25);
+  }
+  .section-padding {
+    @apply px-4 py-20 sm:px-6 lg:px-8;
+  }
+
+  /* Smooth button styles */
+  .btn-smooth {
+    @apply relative overflow-hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .btn-smooth::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .btn-smooth:hover::before {
+    width: 300%;
+    height: 300%;
+  }
+
+  .btn-smooth:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(23, 162, 184, 0.2);
+  }
+
+  .btn-smooth:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Smooth link styles */
+  .link-smooth {
+    @apply relative;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .link-smooth::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .link-smooth:hover::after {
+    width: 100%;
+  }
+
+  /* Smooth card styles */
+  .card-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .card-smooth:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 48px rgba(23, 162, 184, 0.12);
+  }
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-16px); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -50px) scale(1.1); }
+  66%       { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes infinite-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Utilities ─────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+    /* GPU-composited — no layout reflow */
+    will-change: transform;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+    will-change: transform;
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 35s linear infinite;
+    /* GPU layer for the scroll strip */
+    will-change: transform;
+    /* Pause on hover so users can read */
+    &:hover { animation-play-state: paused; }
+  }
+
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+
+  /* Utility to promote an element to its own GPU layer when actively animating */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Prevent layout shift for images before they load */
+  .img-stable {
+    aspect-ratio: attr(width) / attr(height);
+    object-fit: cover;
+  }
+
+  /* Smooth hover transitions — GPU composited */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(23, 162, 184, 0.15);
+  }
+
+  /* Smooth scale hover */
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Smooth glow effect */
+  .hover-glow {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    background: radial-gradient(circle at center, rgba(23, 162, 184, 0.2), transparent 70%);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+  .hover-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Smooth fade in */
+  .fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Smooth slide up */
+  .slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Page transition classes */
+  .page-transition {
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth reveal on scroll */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Animated nav link underline */
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #17A2B8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-animated:hover::after {
+  transform: scaleX(1);
+}
+
+/* Magnetic button hover effect */
+.btn-magnetic {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(23, 162, 184, 0.4);
+}
+
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+/* Slow Ken Burns effect for hero background */
+@keyframes kenBurns {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+/* Card image zoom on hover */
+.card-image-zoom {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-image-zoom:hover {
+  transform: scale(1.08);
+}
+
+/* Social icon bounce */
+.social-icon {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-icon:hover {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+/* Input focus glow */
+.input-glow:focus {
+  border-color: #17A2B8;
+  box-shadow: 0 0 0 3px rgba(23, 162, 184, 0.1), 0 0 12px rgba(23, 162, 184, 0.2);
+  outline: none;
+}
+
+/* Arrow slide animation */
+.arrow-slide {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-slide:hover {
+  transform: translateX(4px);
+}
+
+/* Viewport Framing Border */
+.viewport-frame {
+  position: fixed;
+  inset: 0;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-color: #FFFFFF;
+  pointer-events: none;
+  z-index: 9999;
+  transition: border-width 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(44, 62, 80, 0.05); /* Soft inner shadow line */
+}
+
+@media (min-width: 1024px) {
+  .viewport-frame {
+    border-left-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-top-width: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .viewport-frame {
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-top-width: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .viewport-frame {
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-top-width: 0;
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "solutions": [
+    {
+      "id": "suscat-i",
+      "icon": "FlaskConical",
+      "title": "SusCat-I",
+      "description": "High-performance cationic polymer for industrial formulations requiring exceptional efficiency at low dosage levels",
+      "features": [
+        "Exceptional performance at low dosage",
+        "Excellent water solubility",
+        "Improves process efficiency",
+        "Suitable for multiple industrial applications",
+        "Cost-effective formulation additive"
+      ],
+      "image": "/suscat.png",
+      "sliderImages": [
+        { "src": "/suscat.png", "alt": "SusCat-I Cationic Polymer product packaging bottle" },
+        { "src": "/suscat-slider-2.png", "alt": "SusCat-I industrial application in electroplating and metalworking fluids" }
+      ],
+      "details": {
+        "overview": "SusCat-I is a high-performance cationic polymer designed for industrial formulations requiring exceptional efficiency at low dosage levels. The product exhibits excellent water solubility and delivers superior performance across metalworking, electroplating, and oilfield applications.",
+        "specs": [
+          { "label": "Product Type", "value": "Cationic Polymer" },
+          { "label": "Appearance", "value": "Clear to cloudy amber viscous liquid" },
+          { "label": "Solubility", "value": "Highly soluble in water" },
+          { "label": "Performance", "value": "Highly effective at very low dosage levels" },
+          { "label": "Application", "value": "Multiple industrial formulations" }
+        ],
+        "applications": [
+          "Electroplating Industry (levelling & brightening agent)",
+          "Metal Working Fluids (tramp oil separation)",
+          "De-emulsifier Applications",
+          "Oilfield Applications (scale & corrosion inhibition)",
+          "Industrial Water Treatment",
+          "Specialty Chemical Formulations"
+        ]
+      }
+    },
+    {
+      "id": "vamshield-90",
+      "icon": "ShieldCheck",
+      "title": "VAMShield-90",
+      "description": "Advanced ash-free corrosion inhibitor for multi-metal systems and high-performance industrial fluid applications",
+      "features": [
+        "Superior multi-metal corrosion protection",
+        "Low foaming for enhanced system efficiency",
+        "Excellent air release properties",
+        "High compatibility with hard water systems",
+        "Reduces maintenance and extends equipment life",
+        "Effective at low treatment concentrations"
+      ],
+      "image": "/vamshield-90-product.png",
+      "sliderImages": [
+        { "src": "/vamshield-90-product.png", "alt": "VAMShield-90 ash-free corrosion inhibitor white powder in laboratory dish" },
+        { "src": "/vamshield-90-application.png", "alt": "VAMShield-90 industrial application in metalworking and hydraulic fluids" },
+        { "src": "/vamshield-90-gear-machining.png", "alt": "VAMShield-90 application in gear machining and metal cutting lubrication" },
+        { "src": "/vamshield-90-metal-cutting.png", "alt": "VAMShield-90 advanced metal cutting and lubrication in precision milling machine" }
+      ],
+      "details": {
+        "overview": "VAMShield-90 is an advanced ash-free corrosion inhibitor designed for multi-metal systems and high-performance industrial fluid applications. It provides outstanding corrosion protection, excellent hard water compatibility, and superior efficiency even at low dosage levels.",
+        "specs": [
+          { "label": "Product Type", "value": "Ash-Free Corrosion Inhibitor" },
+          { "label": "Appearance", "value": "White Powder/Granules" },
+          { "label": "Compatibility", "value": "Suitable for multi-metal systems" },
+          { "label": "Foam Characteristics", "value": "Extremely low foaming with excellent air release" },
+          { "label": "Water Compatibility", "value": "Excellent performance in hard water" },
+          { "label": "Efficiency", "value": "Highly effective at very low dosage levels" }
+        ],
+        "applications": [
+          "Water-Based Lubricants",
+          "Metal Working Fluids",
+          "Biodegradable Hydraulic Fluids (HFS)",
+          "Metalworking Industry",
+          "Industrial Lubricants",
+          "Hydraulic Systems",
+          "Manufacturing & Machining",
+          "Industrial Maintenance Fluids",
+          "Specialty Chemical Formulations"
+        ]
+      }
+    },
+    {
+      "id": "suspol-125",
+      "icon": "FlaskConical",
+      "title": "SusPol-125",
+      "description": "Bio-based, castor oil-derived solvent-free polyol engineered for exceptional flexibility, adhesion, and chemical resistance",
+      "features": [
+        "Renewable and bio-based raw material",
+        "Solvent-free and environmentally friendly",
+        "Excellent balance of flexibility and toughness",
+        "Strong adhesion to various substrates",
+        "Outstanding weather and chemical resistance",
+        "Suitable for sustainable industrial coatings"
+      ],
+      "image": "/suspol-125-beaker-clean-v9-clear.png",
+      "sliderImages": [
+        { "src": "/suspol-125-beaker-clean-v9-clear.png", "alt": "SusPol-125 bio-based castor oil polyol for sustainable coatings" },
+        { "src": "/suspol-125-application.png", "alt": "SusPol-125 protective coating application on heavy steel construction beams" }
+      ],
+      "details": {
+        "overview": "SusPol-125 is a bio-based, castor oil-derived solvent-free polyol engineered to deliver exceptional flexibility, adhesion, and chemical resistance. Developed with sustainability at its core, it is an ideal solution for advanced coating and adhesive applications requiring high performance and environmental responsibility.",
+        "specs": [
+          { "label": "Product Type", "value": "Bio-Based Solvent-Free Polyol" },
+          { "label": "Source", "value": "Renewable Castor Oil" },
+          { "label": "Viscosity", "value": "Medium Viscosity" },
+          { "label": "Chemical Structure", "value": "Contains both ether and ester functional groups" },
+          { "label": "Flexibility", "value": "Excellent" },
+          { "label": "Adhesion", "value": "Superior" },
+          { "label": "Chemical Resistance", "value": "High" },
+          { "label": "Sustainability", "value": "Eco-friendly composition" }
+        ],
+        "applications": [
+          "Anti-Corrosion Coatings",
+          "Industrial, Commercial & Residential Flooring",
+          "Waterproof Coatings",
+          "Adhesives & Sealants",
+          "Protective Coatings",
+          "Construction & Infrastructure",
+          "Storage Tanks & Pipelines",
+          "Sustainable Chemical Solutions"
+        ]
+      }
+    },
+    {
+      "id": "vam-rc-01",
+      "icon": "RefreshCw",
+      "title": "VAM RC-01",
+      "description": "Advanced rust converter and corrosion prevention additive that converts rust into a stable protective layer",
+      "features": [
+        "Converts existing rust into stable protective layer",
+        "Prevents further corrosion and rust propagation",
+        "Improves coating adhesion on rusted surfaces",
+        "Reduces need for extensive surface preparation",
+        "Compatible with various waterborne coating systems",
+        "Maintains performance on rusted and clean metal"
+      ],
+      "image": "/vam-rc-01-beaker.png",
+      "sliderImages": [
+        { "src": "/vam-rc-01-beaker.png", "alt": "VAM RC-01 rust converter milky white liquid sample in laboratory beaker" },
+        { "src": "/vam-rc-01-application.png", "alt": "VAM RC-01 rust converter brush application converting surface rust into a stable protective layer" }
+      ],
+      "details": {
+        "overview": "VAM RC-01 is an advanced rust converter and corrosion prevention additive that reacts directly with rust (ferric oxide) and converts it into a stable ferrous protective layer. It provides long-term passivation and enables effective coating application even on poorly prepared or rusted metal surfaces.",
+        "specs": [
+          { "label": "Product Type", "value": "Rust Converter & Corrosion Protection Additive" },
+          { "label": "Appearance", "value": "Milky White Liquid" },
+          { "label": "Technology", "value": "Chemical rust conversion and passivation" },
+          { "label": "Compatibility", "value": "Suitable for waterborne coating systems" },
+          { "label": "Recommended for", "value": "Acrylic, Alkyd, Epoxy, PU coatings" },
+          { "label": "Surface Preparation", "value": "Minimal required" },
+          { "label": "Performance", "value": "Works on both rusted and clean metal surfaces" }
+        ],
+        "applications": [
+          "Rusted Steel Structures",
+          "Protective Coatings",
+          "Industrial Maintenance",
+          "Infrastructure & Heavy Equipment",
+          "Bridges & Pipelines",
+          "Industrial Machinery",
+          "Storage Tanks",
+          "Structural Steel",
+          "Marine & Offshore",
+          "Oil & Gas",
+          "Heavy Equipment Manufacturing"
+        ]
+      }
+    },
+    {
+      "id": "vam-hs-100",
+      "icon": "Sparkles",
+      "title": "VAM HS-100",
+      "description": "Advanced multifunctional lubricant additive offering superior lime soap dispersion, emulsification, foam control, and corrosion inhibition",
+      "features": [
+        "Lime soap dispersion",
+        "Emulsification (Lubricants Additive)",
+        "Foam control (Lubricants Additive)",
+        "Corrosion inhibition (Lubricants Additive)"
+      ],
+      "image": "/vam-hs-100-beaker-clean.png",
+      "sliderImages": [
+        { "src": "/vam-hs-100-beaker-clean.png", "alt": "VAM HS-100 lubricant additive for industrial applications and formulations" }
+      ],
+      "details": {
+        "overview": "VAM HS-100 is an advanced multifunctional lubricant additive designed for high-performance metalworking fluids and corrosion inhibitor formulations. It offers excellent lime soap dispersion, outstanding emulsification, effective foam control, and superior corrosion inhibition in industrial systems.",
+        "specs": [
+          { "label": "Product Type", "value": "Lubricant Additive" },
+          { "label": "Category", "value": "Metalworking & Rust Prevention" },
+          { "label": "Form", "value": "Liquid Formulation" },
+          { "label": "Water Tolerance", "value": "High hard-water tolerance" },
+          { "label": "Function", "value": "Emulsification, foam control, and rust preventive" },
+          { "label": "Performance", "value": "Superior lime soap dispersion" }
+        ],
+        "applications": [
+          "Metal working fluids (mineral and vegetable oils)",
+          "Corrosion inhibitor formulations",
+          "Lubricants additive and foam control",
+          "High hard-water tolerance systems",
+          "Industrial manufacturing formulations"
+        ]
+      }
+    }
+  ],
+  "results": {
+    "sectionTitle": {
+      "subtitle": "PROVEN RESULTS",
+      "title": "What You Can Expect",
+      "description": "Benefits from manufacturers using VAM VALTRIX solutions"
+    },
+    "items": [
+      { "benefit": "Faster Lead Times", "description": "Streamlined procurement cycles with efficient material sourcing and delivery." },
+      { "benefit": "Reliable Fulfillment", "description": "Consistent, dependable service across all orders and product lines." },
+      { "benefit": "Complete Order Visibility", "description": "Track every step from quote to delivery in your account dashboard." },
+      { "benefit": "Rapid Custom Request Response", "description": "Quick turnaround when you need specialized materials outside the standard catalog." }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Clear Cache & Redirect</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #17A2B8 0%, #0D7A8C 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            max-width: 600px;
+        }
+        h1 { font-size: 2rem; margin-bottom: 1rem; }
+        p { font-size: 1.1rem; margin: 1rem 0; }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #17A2B8;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .steps {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .steps li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Clear Cache Required</h1>
+        <p>To see the latest updates on the Metalworking page, please follow these steps:</p>
+        
+        <div class="steps">
+            <ol>
+                <li><strong>Press Ctrl + Shift + Delete</strong></li>
+                <li>Select <strong>"All time"</strong> as time range</li>
+                <li>Check <strong>"Cached images and files"</strong></li>
+                <li>Click <strong>"Clear data"</strong></li>
+                <li>Click the button below to go to the updated page</li>
+            </ol>
+        </div>
+
+        <p><strong>OR simply press Ctrl + Shift + R on the page for a hard refresh</strong></p>
+
+        <a href="/industries/metalworking" class="btn">
+            Go to Metalworking Page →
+        </a>
+
+        <p style="font-size: 0.9rem; margin-top: 2rem; opacity: 0.8;">
+            The code has been updated with all your changes. Browser caching is preventing you from seeing them.
+        </p>
+    </div>
+
+    <script>
+        // Clear localStorage and sessionStorage
+        localStorage.clear();
+        sessionStorage.clear();
+        
+        // Log to console
+        console.log('🔥 CACHE CLEARING PAGE - All storage cleared');
+        console.log('Please clear your browser cache using Ctrl + Shift + Delete');
+    </script>
+</body>
+</html>

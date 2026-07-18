@@ -1,0 +1,186 @@
+[
+  {
+    "slug": "corrosion-inhibitors",
+    "name": "Corrosion Inhibitors",
+    "category": "Corrosion Mitigation Science",
+    "tagline": "Corrosion Inhibitor Manufacturer India",
+    "description": "Valtrix manufactures vapor-phase (VCI) corrosion inhibitors, solvent-de-watering rust preventive fluids, and oil-soluble concentrates.",
+    "features": [],
+    "specs": [
+      { "label": "VCI Dispersion Range", "value": "Effective within a 30cm radius of open metal surface" },
+      { "label": "Protection Duration", "value": "Up to 24 months in enclosed storage environments" },
+      { "label": "Solvent Carrier Purity", "value": "Ultra-low aromatic solvents (flash point >62 C)" },
+      { "label": "Salt Spray Performance", "value": ">48 hours (ASTM B117) on carbon steel test panels" },
+      { "label": "Humidity Resistance", "value": ">30 days (ASTM D1748) at 100% relative humidity" }
+    ],
+    "applications": ["VCI Packaging Formulation", "Export Shipping Protection", "De-watering Rust Prevention", "Cooling Water Treatment"],
+    "industries": ["Metal Working Fluids & Lubricants", "Surface Treatment Technology"],
+    "calloutNote": "Need a completely bio-degradable, water-soluble corrosion inhibitor? Valtrix manufactures zero-VOC organic corrosion preventatives suitable for closed-loop cooling towers.",
+    "ctas": [
+      { "label": "Request Sample / Quote", "href": "/contact?product=corrosion-inhibitors", "type": "primary" },
+      { "label": "Download Tech Data Sheets", "href": "/resources/downloads?product=metals-alloys", "type": "secondary" }
+    ],
+    "images": { "hero": null, "product": null, "gallery": [] },
+    "seo": {
+      "title": "Corrosion Inhibitor Manufacturer India | VCI Rust Inhibitors - Valtrix",
+      "description": "Valtrix is a leading corrosion inhibitor manufacturer in India.",
+      "keywords": ["Corrosion Inhibitor Manufacturer India", "VCI Rust Inhibitors"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Corrosion Inhibitors & VCI Oils", "brand": { "@type": "Brand", "name": "Valtrix" } }
+  },
+  {
+    "slug": "electroplating-chemicals",
+    "name": "Electroplating Chemicals",
+    "category": "Precision Metal Finishing",
+    "tagline": "Electroplating Chemicals Supplier India",
+    "description": "Valtrix supplies high-purity electroplating salts, acid brighteners, post-treatment passivations, and surface preparation cleaners.",
+    "features": [],
+    "specs": [
+      { "label": "Chemical Purity", "value": ">99.8% pure grade electro-salts" },
+      { "label": "Plating Thickness Range", "value": "5 to 25 microns (customizable)" },
+      { "label": "Bath Stability Index", "value": "Extended life brighteners with high thermal stability" },
+      { "label": "pH Range Adaptability", "value": "Highly buffered formulas (pH 1.2 to 8.5)" },
+      { "label": "Metal Content", "value": "Strict quality-controlled elemental copper and zinc densities" }
+    ],
+    "applications": ["Acid Zinc Plating", "Decorative Nickel Coating", "Acid Copper Plating", "Industrial Tin Plating"],
+    "industries": ["Electroplating & Brighteners"],
+    "calloutNote": "Need help optimizing your bath setup parameters? Our electrochemistry experts provide full bath analysis and brightener calibration reports.",
+    "ctas": [
+      { "label": "Request Catalog / Inquire", "href": "/contact?product=electroplating-chemicals", "type": "primary" },
+      { "label": "Download MSDS / SDS", "href": "/resources/downloads?product=coatings-chemicals", "type": "secondary" }
+    ],
+    "images": { "hero": null, "product": null, "gallery": [] },
+    "seo": {
+      "title": "Electroplating Chemicals Supplier India - Valtrix",
+      "description": "Valtrix is a trusted electroplating chemicals supplier in India.",
+      "keywords": ["Electroplating Chemicals Supplier India", "Metal Plating Chemicals"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Electroplating Chemicals & Additives", "brand": { "@type": "Brand", "name": "Valtrix" } }
+  },
+  {
+    "slug": "metalworking-fluids",
+    "name": "Metalworking Fluids",
+    "category": "Specialty Industrial Chemistry",
+    "tagline": "Metalworking Fluids Manufacturer India",
+    "description": "Valtrix manufactures next-generation metalworking coolants, soluble cutting oils, and synthetic lubricants.",
+    "features": [],
+    "specs": [
+      { "label": "Purity Index", "value": "Grade-A Synthetic base compounds" },
+      { "label": "Viscosity Range", "value": "Optimized 15 cSt to 45 cSt @ 40 C" },
+      { "label": "Corrosion Protection", "value": ">72 hours (ASTM D665)" },
+      { "label": "Dilution Ratio Stability", "value": "1:10 to 1:30 in hard water" },
+      { "label": "Foam Control", "value": "Zero foam buildup in high pressure tooling" }
+    ],
+    "applications": ["CNC Turning & Milling", "High-Speed Drilling", "Heavy Gear Grinding", "Metal Broaching"],
+    "industries": ["Metal Working Fluids & Lubricants"],
+    "calloutNote": "Need a customized viscosity or anti-wear formulation? Our R&D center conducts specialized testing for specific manufacturing lines.",
+    "ctas": [
+      { "label": "Inquire Sourcing / Get Quote", "href": "/contact?product=metalworking-fluids", "type": "primary" },
+      { "label": "Download Tech Sheets", "href": "/resources/downloads?product=metals-alloys", "type": "secondary" }
+    ],
+    "images": { "hero": null, "product": null, "gallery": [] },
+    "seo": {
+      "title": "Metalworking Fluids Manufacturer India - Valtrix",
+      "description": "Valtrix is a leading metalworking fluids manufacturer in India.",
+      "keywords": ["Metalworking Fluids Manufacturer India", "Industrial Lubricants"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Industrial Metalworking Fluids", "brand": { "@type": "Brand", "name": "Valtrix" } }
+  },
+  {
+    "slug": "surface-treatments",
+    "name": "Surface Treatments",
+    "category": "Metal Surface Modification",
+    "tagline": "Surface Treatment Chemicals India",
+    "description": "Valtrix engineers specialized surface treatment chemistry, including rust convertors, heavy-duty alkaline degreasers, micro-crystalline zinc phosphating, and metal passivators.",
+    "features": [],
+    "specs": [
+      { "label": "Coat Thickness", "value": "1.5 to 4.5 g/m2 Zinc Phosphate film" },
+      { "label": "Phosphating Type", "value": "Microcrystalline immersion & spray grades" },
+      { "label": "Salt Spray Resistance", "value": "Up to 240 hours (ASTM B117)" },
+      { "label": "Drying Speed", "value": "Rapid dry and flash rust preventive formula" },
+      { "label": "Substrate Compatibility", "value": "Iron, Carbon Steel, Aluminum, and Galvanized Sheet" }
+    ],
+    "applications": ["Metal Degreasing", "Zinc Phosphating", "Acid De-rusting", "Passivation Pre-treatment"],
+    "industries": ["Surface Treatment Technology"],
+    "calloutNote": "Need a REACH/RoHS-compliant hexavalent chromium-free passivation? Valtrix manufactures eco-safe trivalent chromium and completely chrome-free sealers.",
+    "ctas": [
+      { "label": "Get Custom Quote / Contact Us", "href": "/contact?product=surface-treatments", "type": "primary" },
+      { "label": "Download Technical Sheets", "href": "/resources/downloads?product=coatings-chemicals", "type": "secondary" }
+    ],
+    "images": { "hero": null, "product": null, "gallery": [] },
+    "seo": {
+      "title": "Surface Treatment Chemicals India - Valtrix",
+      "description": "Valtrix is a leading manufacturer of surface treatment chemicals in India.",
+      "keywords": ["Surface Treatment Chemicals India", "Rust Preventives"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Surface Treatment Chemicals", "brand": { "@type": "Brand", "name": "Valtrix" } }
+  },
+  {
+    "slug": "sustainable-polyols",
+    "name": "Sustainable Polyols",
+    "category": "Green Chemistry Solutions",
+    "tagline": "Bio Based Polyols Supplier India",
+    "description": "Valtrix is a leading bio based polyols supplier in India, manufacturing sustainable specialty polyols derived from cashew nut shell liquid (CNSL) and castor oil.",
+    "features": [],
+    "specs": [
+      { "label": "Bio-based Content", "value": ">75% renewable carbon source" },
+      { "label": "Hydroxyl Value", "value": "180 to 290 mg KOH/g (custom grade)" },
+      { "label": "Viscosity Range", "value": "1500 to 3500 cSt @ 25 C" },
+      { "label": "Water Content", "value": "Ultra-low moisture content (<0.08% wt)" },
+      { "label": "Functionality Index", "value": "Optimized diol/triol mix for high mechanical resilience" }
+    ],
+    "applications": ["Polyurethane Foams", "Sustainable Floor Coatings", "Bio-based Elastomers", "Green Adhesives & Sealants"],
+    "industries": ["Automotive & General Industries"],
+    "calloutNote": "Looking for custom hydroxyl value specifications? Our green chemical R&D group can formulate custom polyols targeting specific curing rates.",
+    "ctas": [
+      { "label": "Order Evaluation Sample", "href": "/contact?product=sustainable-polyols", "type": "primary" },
+      { "label": "Download Tech Data Sheets", "href": "/resources/downloads?product=polymers-composites", "type": "secondary" }
+    ],
+    "images": { "hero": null, "product": null, "gallery": [] },
+    "seo": {
+      "title": "Bio Based Polyols Supplier India - Valtrix",
+      "description": "Valtrix is a leading bio based polyols supplier in India.",
+      "keywords": ["Bio Based Polyols Supplier India", "Sustainable Polyols"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Bio-Based Sustainable Polyols", "brand": { "@type": "Brand", "name": "Valtrix" } }
+  },
+  {
+    "slug": "vamshield-90",
+    "name": "VAMShield-90",
+    "category": "CORROSION INHIBITOR",
+    "tagline": "Advanced corrosion inhibitor for metalworking fluids and lubricants",
+    "description": "VAMShield-90 is a high-performance corrosion inhibitor specifically designed for metalworking fluids and industrial lubricants.",
+    "features": ["Superior corrosion protection for ferrous and non-ferrous metals", "Excellent compatibility with metalworking fluids", "Extended equipment life and reduced downtime", "Effective at low dosage rates", "Stable across wide temperature ranges", "Environmentally friendly formulation"],
+    "specs": [
+      { "label": "Product Code", "value": "VAMShield-90" },
+      { "label": "Chemical Type", "value": "Corrosion Inhibitor" },
+      { "label": "Application", "value": "Metalworking & Lubricants" },
+      { "label": "Dosage Range", "value": "0.5% - 2.0%" },
+      { "label": "pH Range", "value": "8.0 - 9.5" },
+      { "label": "Storage", "value": "Cool, dry place (15-25 C)" }
+    ],
+    "applications": ["Metalworking Fluids", "Industrial Lubricants", "Cooling Systems"],
+    "industries": ["Metal Working Fluids & Lubricants"],
+    "ctas": [
+      { "label": "Contact Us", "href": "/contact", "type": "primary" },
+      { "label": "Call Us", "href": "tel:+919898123983", "type": "secondary" }
+    ],
+    "images": {
+      "hero": null,
+      "product": "/vamshield-90-product.png",
+      "gallery": [
+        { "src": "/vamshield-90-product.png", "alt": "VAMShield-90 product", "title": "Product Sample" },
+        { "src": "/vamshield-90-product-2.png", "alt": "VAMShield-90 close-up", "title": "Detailed View" },
+        { "src": "/vamshield-90-gear-machining.png", "alt": "Gear machining application", "title": "Machining" },
+        { "src": "/vamshield-90-metal-cutting.png", "alt": "Metal cutting application", "title": "Milling" }
+      ]
+    },
+    "seo": {
+      "title": "VAMShield-90 | Advanced Corrosion Inhibitor - Valtrix",
+      "description": "VAMShield-90 is a high-performance corrosion inhibitor for metalworking fluids.",
+      "keywords": ["VAMShield-90", "corrosion inhibitor", "metalworking fluids"]
+    },
+    "jsonLd": null,
+    "phoneNumber": "+919898123983"
+  }
+]

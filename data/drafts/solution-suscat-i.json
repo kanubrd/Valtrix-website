@@ -1,0 +1,60 @@
+{
+  "data": {
+    "id": "suscat-i",
+    "icon": "FlaskConical",
+    "title": "SusCat-I",
+    "description": "High-performance cationic polymer for industrial formulations requiring exceptional efficiency at low dosage levels",
+    "features": [
+      "Exceptional performance at low dosage",
+      "Excellent water solubility",
+      "Improves process efficiency",
+      "Suitable for multiple industrial applications",
+      "Cost-effective formulation additive"
+    ],
+    "image": "/suscat.png",
+    "sliderImages": [
+      {
+        "src": "/suscat.png",
+        "alt": "SusCat-I Cationic Polymer product packaging bottle"
+      },
+      {
+        "src": "/suscat-slider-2.png",
+        "alt": "SusCat-I industrial application in electroplating and metalworking fluids"
+      }
+    ],
+    "details": {
+      "overview": "SusCat-I is a high-performance cationic polymer designed for industrial formulations requiring exceptional efficiency at low dosage levels. The product exhibits excellent water solubility and delivers superior performance across metalworking, electroplating, and oilfield applications.",
+      "specs": [
+        {
+          "label": "Product Type",
+          "value": "Cationic Polymer"
+        },
+        {
+          "label": "Appearance",
+          "value": "Clear to cloudy amber viscous liquid"
+        },
+        {
+          "label": "Solubility",
+          "value": "Highly soluble in water"
+        },
+        {
+          "label": "Performance",
+          "value": "Highly effective at very low dosage levels"
+        },
+        {
+          "label": "Application",
+          "value": "Multiple industrial formulations"
+        }
+      ],
+      "applications": [
+        "Electroplating Industry (levelling & brightening agent)",
+        "Metal Working Fluids (tramp oil separation)",
+        "De-emulsifier Applications",
+        "Oilfield Applications (scale & corrosion inhibition)",
+        "Industrial Water Treatment",
+        "Specialty Chemical Formulations"
+      ]
+    }
+  },
+  "updatedAt": "2026-07-17T18:32:50.828Z"
+}
