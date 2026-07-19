@@ -178,7 +178,8 @@
       ],
       "image": "/vam-hs-100-beaker-clean.png",
       "sliderImages": [
-        { "src": "/vam-hs-100-beaker-clean.png", "alt": "VAM HS-100 lubricant additive for industrial applications and formulations" }
+        { "src": "/vam-hs-100-beaker-clean.png", "alt": "VAM HS-100 lubricant additive for industrial applications and formulations" },
+        { "src": "/vam-hs-100-machining.png", "alt": "VAM HS-100 lubricant additive formulation applied during industrial metalworking and high-speed CNC machining" }
       ],
       "details": {
         "overview": "VAM HS-100 is an advanced multifunctional lubricant additive designed for high-performance metalworking fluids and corrosion inhibitor formulations. It offers excellent lime soap dispersion, outstanding emulsification, effective foam control, and superior corrosion inhibition in industrial systems.",

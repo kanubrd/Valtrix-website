@@ -8,21 +8,25 @@ import type { QuoteSubmission, ContactSubmission } from './db';
 
 // ── Email Configuration ───────────────────────────────────────────────
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  tls: {
-    rejectUnauthorized: true,
-  },
-});
+const hasSmtpConfig = !!(process.env.SMTP_USER && process.env.SMTP_PASS);
+
+const transporter = hasSmtpConfig
+  ? nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+      tls: {
+        rejectUnauthorized: true,
+      },
+    })
+  : null;
 
 // Verify transporter configuration on startup (dev only)
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' && transporter) {
   transporter.verify((error) => {
     if (error) {
       console.error('❌ SMTP configuration error:', error.message);
@@ -30,6 +34,22 @@ if (process.env.NODE_ENV === 'development') {
       console.log('✅ SMTP server is ready to send emails');
     }
   });
+} else if (process.env.NODE_ENV === 'development') {
+  console.log('📝 SMTP configuration missing - using mock console email delivery');
+}
+
+async function sendMail(options: any): Promise<any> {
+  if (transporter) {
+    return await transporter.sendMail(options);
+  } else {
+    console.log('✉️ [SMTP MOCK DELIVERY]');
+    console.log(`   From: ${options.from}`);
+    console.log(`   To: ${options.to}`);
+    console.log(`   Subject: ${options.subject}`);
+    console.log(`   Headers: ${JSON.stringify(options.headers || {})}`);
+    console.log(`   HTML Summary: ${options.html ? options.html.substring(0, 150).replace(/\s+/g, ' ') + '...' : 'None'}`);
+    return { messageId: 'mock-id-' + Date.now() };
+  }
 }
 
 // ── Email Templates ───────────────────────────────────────────────────
@@ -170,7 +190,7 @@ export async function sendQuoteEmail(data: Omit<QuoteSubmission, 'id' | 'timesta
     html,
   };
 
-  await transporter.sendMail(mailOptions);
+  await sendMail(mailOptions);
 }
 
 // ── Contact Form Email ────────────────────────────────────────────────
@@ -254,7 +274,7 @@ export async function sendContactEmail(data: Omit<ContactSubmission, 'id' | 'tim
     html,
   };
 
-  await transporter.sendMail(mailOptions);
+  await sendMail(mailOptions);
 }
 
 // ── Newsletter Welcome Email ──────────────────────────────────────────
@@ -308,7 +328,7 @@ export async function sendNewsletterWelcomeEmail(email: string): Promise<void> {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    await sendMail(mailOptions);
     console.log(`✅ Newsletter welcome sent successfully to ${email}`);
   } catch (error) {
     console.error(`❌ Failed to send newsletter welcome to ${email}:`, error);
@@ -407,7 +427,7 @@ export async function sendAutoResponseEmail(to: string, name: string, type: 'quo
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    await sendMail(mailOptions);
     console.log(`✅ Auto-response sent successfully to ${to}`);
   } catch (error) {
     console.error(`❌ Failed to send auto-response to ${to}:`, error);
