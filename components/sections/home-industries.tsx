@@ -5,8 +5,6 @@ import { Reveal } from '@/components/animations/reveal';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import industriesData from '@/data/content/industries.json';
-
 const tagColors: Record<string, { bg: string; text: string }> = {
   'AUTOMOTIVE & GEN':   { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
   'METALWORKING':       { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
@@ -14,9 +12,7 @@ const tagColors: Record<string, { bg: string; text: string }> = {
   'SURFACE TREATMENT':   { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
 };
 
-export function HomeIndustriesSection() {
-  // Use data from industries.json
-  const industries = industriesData;
+export function HomeIndustriesSection({ industries }: { industries: any[] }) {
 
   return (
     <section className="py-20 md:py-28 bg-white border-t border-gray-150">

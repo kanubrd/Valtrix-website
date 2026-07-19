@@ -7,8 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle, ChevronLeft, ChevronRight, FlaskConical, ShieldCheck, RefreshCw, Sparkles } from 'lucide-react';
 import { Section, SectionTitle } from '@/components/ui/section';
-import solutionsData from '@/data/content/solutions.json';
-
 const iconMap: Record<string, React.ComponentType<any>> = {
   FlaskConical,
   ShieldCheck,
@@ -16,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   Sparkles
 };
 
-export function SolutionsContent() {
+export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
   const [selectedId, setSelectedId] = useState<string>('suscat-i');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
 

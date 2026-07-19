@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SolutionsContent } from './solutions-content';
+import { getSolutionsData } from '@/lib/content-utils';
 
 export const metadata: Metadata = {
   title: 'Industrial Specialty Chemical Solutions | VAM VALTRIX',
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
 };
 
 export default function SolutionsPage() {
+  const solutionsData = getSolutionsData();
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
@@ -45,7 +47,7 @@ export default function SolutionsPage() {
         </div>
       </div>
     }>
-      <SolutionsContent />
+      <SolutionsContent solutionsData={solutionsData} />
     </Suspense>
   );
 }
