@@ -25,8 +25,8 @@ export function DownloadsContent() {
 
   // Unique product names for filter options
   const uniqueProducts = Array.from(
-    new Set(documentsList.map((doc) => ({ id: doc.productId, name: doc.productName })))
-  );
+    new Map(documentsList.map((doc) => [doc.productId, doc.productName])).entries()
+  ).map(([id, name]) => ({ id, name }));
 
   // Filter logic
   const filteredDocs = documentsList.filter((doc) => {
