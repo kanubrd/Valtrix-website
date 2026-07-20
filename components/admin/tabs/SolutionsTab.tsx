@@ -563,7 +563,7 @@ export function SolutionsTab() {
               {saveStatus === 'saving' && <Loader2 size={20} className="animate-spin" />}
               {saveStatus === 'saved' && <Check size={20} />}
               {saveStatus === 'idle' && <Save size={20} />}
-              {saveStatus === 'idle' && 'Publish Changes'}
+              {saveStatus === 'idle' && (isCreatingNew ? 'Create & Publish' : 'Publish Changes')}
               {saveStatus === 'saving' && 'Saving...'}
               {saveStatus === 'saved' && 'Saved Successfully'}
             </button>
