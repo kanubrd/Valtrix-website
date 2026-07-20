@@ -22,7 +22,7 @@
     "applications": [
       { "title": "Automotive Manufacturing", "description": "High-performance coatings and surface treatments for vehicle production lines and component manufacturing.", "image": "/automotive-manufacturing.png", "icon": "Car" },
       { "title": "Maintenance & Repair", "description": "Specialized chemistry for automotive aftermarket, including rust treatment and corrosion prevention.", "image": "/maintenance-repair.png", "icon": "Wrench" },
-      { "title": "General Industrial", "description": "Versatile solutions for diverse manufacturing operations across multiple industrial sectors.", "image": "/general-industrial.png", "icon": "Factory" }
+      { "title": "General Industrial", "description": "Versatile solutions for diverse manufacturing operations across multiple industrial sectors.", "image": "/general-industrial-v2.png", "icon": "Factory" }
     ],
     "applicationsSectionSubtitle": "Comprehensive solutions for automotive and general industrial needs",
     "segments": [
