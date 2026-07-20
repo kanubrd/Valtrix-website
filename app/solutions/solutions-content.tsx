@@ -23,7 +23,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const queryProduct = params.get('product');
-      if (queryProduct && solutionsData.solutions.some(s => s.id === queryProduct)) {
+      if (queryProduct && solutionsData.solutions.some((s: any) => s.id === queryProduct)) {
         setSelectedId(queryProduct);
         setProductSlideIndex(0);
       }
