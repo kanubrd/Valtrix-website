@@ -25,7 +25,7 @@ const threatCards = [
   {
     title: 'Surface Degradation',
     description: 'Unprotected or improperly specified materials degrade rapidly in harsh environments, compounding maintenance costs and compliance risk.',
-    image: '/surface-degradation.webp',
+    image: '/surface-degradation-v2.png',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
     alt: 'a macro photograph highlighting surface degradation, deep oxidation, and rust textures forming on a structural industrial metal beam.',
