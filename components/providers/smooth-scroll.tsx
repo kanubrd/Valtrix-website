@@ -9,26 +9,23 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     // Ultra-smooth scroll configuration - butter-smooth experience
     const lenis = new Lenis({
-      // Slower duration for silky smooth scrolling
-      duration: 1.2,
-      // Enhanced Apple-style easing with even smoother deceleration
-      easing: (t: number) => {
-        // Custom easing: easeOutQuart for ultra-smooth feel
-        return 1 - Math.pow(1 - t, 4);
-      },
+      // Faster duration for snappy but smooth scrolling
+      duration: 0.8,
+      // standard expo easing for natural acceleration/deceleration
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      // Refined for buttery desktop scrolling
-      wheelMultiplier: 0.8,
-      // Enhanced mobile touch scrolling
-      touchMultiplier: 1.8,
+      // More responsive wheel distance
+      wheelMultiplier: 1.1,
+      // Natural mobile touch scrolling
+      touchMultiplier: 1.5,
       // Prevent infinite scroll
       infinite: false,
       // Automatically handles passive listeners for better performance
       autoResize: true,
-      // Smoother lerp value for ultra-smooth interpolation
-      lerp: 0.08,
+      // Faster lerp for direct responsive feel
+      lerp: 0.12,
     });
 
     lenisRef.current = lenis;

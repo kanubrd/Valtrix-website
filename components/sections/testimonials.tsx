@@ -94,17 +94,16 @@ export function TestimonialsSection() {
                     }}
                   >
                     {/* Image */}
-                    <div className="relative h-52 overflow-hidden bg-[#2C3E50]">
+                    <div className="relative h-52 overflow-hidden bg-transparent">
                       <Image
                         src={card.image}
                         alt={card.alt}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
                         quality={85}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E50]/60 to-transparent" />
                       <div className="absolute top-4 left-4">
                         <span
                           className="text-[9px] font-bold tracking-[2px] uppercase px-2.5 py-1.5"
