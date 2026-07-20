@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { getSession } from '@/lib/auth';
+
+async function checkAuth() {
+  const session = await getSession();
+  return session.isLoggedIn;
+}
 
 const REDIRECTS_FILE = path.join(process.cwd(), 'data', 'content', 'redirects.json');
 
@@ -19,6 +25,11 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const authorized = await checkAuth();
+    if (!authorized) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const { source, destination } = await req.json();
     if (!source || !destination) {
       return NextResponse.json({ error: 'Missing source or destination' }, { status: 400 });
