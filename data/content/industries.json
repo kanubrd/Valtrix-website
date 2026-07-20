@@ -82,7 +82,7 @@
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.",
     "listingImage": "/electroplating-category.avif",
-    "hero": { "image": "/electroplating-hero.png", "imageAlt": "Electroplating", "imageObjectFit": "object-cover", "heroTagline": "ELECTROPLATING SOLUTIONS", "title": "Electroplating & Brighteners", "subtitle": "Advanced specialty chemicals for superior surface finishing and electroplating applications" },
+    "hero": { "image": "/electroplating-hero.png", "imageAlt": "Electroplating", "imageObjectFit": "object-contain", "heroTagline": "ELECTROPLATING SOLUTIONS", "title": "Electroplating & Brighteners", "subtitle": "Advanced specialty chemicals for superior surface finishing and electroplating applications" },
     "overview": ["Electroplating and Brighteners are essential components of modern surface engineering, widely used in the automotive, electronics, aerospace, construction, and consumer goods industries."],
     "applications": [
       { "title": "Decorative Plating", "description": "Achieve brilliant, mirror-like finishes for automotive, hardware, and consumer products.", "image": "/decorative-plating.png", "icon": "Sparkles" },
