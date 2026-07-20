@@ -19,7 +19,7 @@ const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((m
 });
 
 const heroSlides = [
-  { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design', duration: 4000 },
+  { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design', duration: 3000 },
   { src: '/slide3.png',  alt: 'Sustainable green industrial plant', duration: 3000 },
   { src: '/slide2-petri-dish.png', alt: 'Sustainable green chemistry and industrial technology', duration: 3000 },
 ];
