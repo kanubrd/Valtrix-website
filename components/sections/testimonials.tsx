@@ -8,11 +8,11 @@ import { Reveal } from '@/components/animations/reveal';
 const threatCards = [
   {
     title: 'Equipment Failure',
-    description: 'Substandard materials accelerate wear and cause unexpected breakdowns, resulting in costly unplanned downtime across production lines.',
-    image: '/equipment-failure.png',
-    tag: 'INDUSTRIAL RISK',
-    link: '/products/corrosion-inhibitors',
-    alt: 'corrosion damage on heavy industrial machinery parts, showcasing weathered steel textures and unexpected mechanical wear.',
+    description: 'Poor quality additives lead to chemical degradation, oil sludge, and premature failure of high-speed CNC machines, gearboxes, and pumps.',
+    image: '/equipment-failure-v2.png',
+    tag: 'ASSET DEGRADATION',
+    link: '/products/vam-hs-100',
+    alt: 'a damaged industrial gearbox on a factory floor with oil leaking and gears showing severe wear and tear due to chemical failure.',
   },
   {
     title: 'Economic Loss',
@@ -33,7 +33,7 @@ const threatCards = [
 ];
 
 const tagColors: Record<string, { bg: string; text: string }> = {
-  'INDUSTRIAL RISK':  { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444' },
+  'ASSET DEGRADATION':  { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444' },
   'FINANCIAL IMPACT': { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
   'MATERIAL SCIENCE': { bg: 'rgba(23, 162, 184, 0.1)',  text: '#17A2B8' },
 };
