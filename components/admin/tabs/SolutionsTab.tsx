@@ -10,11 +10,31 @@ export function SolutionsTab() {
   const [solutions, setSolutions] = useState<Solution[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [isCreatingNew, setIsCreatingNew] = useState(false);
   const [editForm, setEditForm] = useState<Partial<Solution>>({});
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const draftTimer = useRef<NodeJS.Timeout | null>(null);
+
+  const startCreate = () => {
+    setIsCreatingNew(true);
+    setEditingId('new-solution-id');
+    setEditForm({
+      id: '',
+      icon: 'FlaskConical',
+      title: '',
+      description: '',
+      features: [''],
+      image: '',
+      sliderImages: [{ src: '', alt: '' }],
+      details: {
+        overview: '',
+        specs: [{ label: '', value: '' }],
+        applications: [''],
+      },
+    });
+  };
 
   // Fetch all solutions
   const fetchSolutions = async () => {
@@ -149,6 +169,16 @@ export function SolutionsTab() {
 
   const handleSave = async () => {
     if (saveStatus !== 'idle') return;
+    if (isCreatingNew) {
+      if (!editForm.id) {
+        showToast('Sector ID (Slug) is required.', 'error');
+        return;
+      }
+      if (solutions.some((s) => s.id === editForm.id)) {
+        showToast('This Sector ID is already taken. Please choose another one.', 'error');
+        return;
+      }
+    }
     if (!editForm.title || !editForm.description) {
       showToast('Solution Title and Description are required.', 'error');
       return;
@@ -156,14 +186,14 @@ export function SolutionsTab() {
     setSaveStatus('saving');
     try {
       const res = await fetch('/api/admin/solutions', {
-        method: 'PUT',
+        method: isCreatingNew ? 'POST' : 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editForm),
       });
 
       if (res.ok) {
         setSaveStatus('saved');
-        showToast('Solution saved and published successfully!', 'success');
+        showToast(isCreatingNew ? 'Solution created successfully!' : 'Solution saved and published successfully!', 'success');
         
         // Delete draft after publishing
         await fetch(`/api/admin/drafts?type=solution&id=${editingId}`, { method: 'DELETE' });
@@ -171,6 +201,7 @@ export function SolutionsTab() {
         setTimeout(() => {
           setSaveStatus('idle');
           setEditingId(null);
+          setIsCreatingNew(false);
           setEditForm({});
           fetchSolutions();
         }, 800);
@@ -221,9 +252,31 @@ export function SolutionsTab() {
 
       {!editingId ? (
         <div className="space-y-4">
-          <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#2C3E50', marginBottom: '16px' }}>
-            Modify Existing Solutions
-          </h3>
+          <div className="flex justify-between items-center mb-4">
+            <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#2C3E50' }}>
+              Modify Existing Solutions
+            </h3>
+            <button
+              onClick={startCreate}
+              style={{
+                padding: '10px 18px',
+                borderRadius: '10px',
+                background: '#17A2B8',
+                color: '#FFFFFF',
+                fontWeight: 'bold',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '13px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}
+              className="hover:brightness-95 active:scale-98 transition-all shadow-sm"
+            >
+              <Plus size={16} />
+              <span>Add Sector</span>
+            </button>
+          </div>
           <div className="grid gap-4">
             {solutions.map((sol) => (
               <div
@@ -266,7 +319,7 @@ export function SolutionsTab() {
         <div className="space-y-6">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <button
-              onClick={() => { setEditingId(null); setEditForm({}); }}
+              onClick={() => { setEditingId(null); setIsCreatingNew(false); setEditForm({}); }}
               style={{
                 background: 'transparent',
                 border: 'none',
@@ -283,6 +336,37 @@ export function SolutionsTab() {
           </div>
 
           <div style={{ padding: '20px', background: '#F8FAFB', borderRadius: '16px', border: '1px solid #E2E8F0' }} className="space-y-5">
+            {isCreatingNew && (
+              <div>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
+                  Sector ID (Slug) - e.g. oem-coatings
+                </label>
+                <input
+                  type="text"
+                  value={editForm.id || ''}
+                  onChange={(e) => handleInputChange('id', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''))}
+                  placeholder="e.g. oem-coatings"
+                  style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid #CBD5E1' }}
+                />
+              </div>
+            )}
+
+            <div>
+              <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
+                Solution Icon
+              </label>
+              <select
+                value={editForm.icon || 'FlaskConical'}
+                onChange={(e) => handleInputChange('icon', e.target.value)}
+                style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid #CBD5E1', background: '#FFFFFF' }}
+              >
+                <option value="FlaskConical">Flask / Chemistry</option>
+                <option value="ShieldCheck">Shield / Protection</option>
+                <option value="RefreshCw">Refresh / Recycling</option>
+                <option value="Sparkles">Sparkles / Premium finish</option>
+              </select>
+            </div>
+
             <div>
               <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
                 Solution Title
