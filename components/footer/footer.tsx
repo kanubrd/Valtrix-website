@@ -174,17 +174,17 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2">
-            <Link href="/" className="inline-block mb-5">
+            <Link href="/" className="inline-block mb-5 bg-white py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <Image 
                 src="/valtrix-logo.png" 
                 alt="Valtrix Advanced Materials Logo" 
-                width={122} 
-                height={44} 
+                width={160} 
+                height={58} 
                 priority={false} 
                 quality={100}
-                className="w-auto h-auto" 
+                className="w-auto h-auto object-contain" 
                 style={{ 
-                  height: '44px', 
+                  height: '48px', 
                   width: 'auto', 
                   transition: 'all 0.3s ease',
                 }} 
