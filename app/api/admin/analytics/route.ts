@@ -4,22 +4,16 @@ import {
   getContactSubmissions,
   getNewsletterSubscriptions,
 } from '@/lib/db';
+import { getSession } from '@/lib/auth';
 
-// Simple authentication
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'change-me-in-production';
-
-function authenticate(req: NextRequest): boolean {
-  const authHeader = req.headers.get('authorization');
-  if (!authHeader) return false;
-
-  const [type, credentials] = authHeader.split(' ');
-  if (type !== 'Bearer') return false;
-
-  return credentials === ADMIN_PASSWORD;
+async function checkAuth() {
+  const session = await getSession();
+  return session.isLoggedIn;
 }
 
 export async function GET(req: NextRequest) {
-  if (!authenticate(req)) {
+  const authorized = await checkAuth();
+  if (!authorized) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

@@ -6,23 +6,17 @@ import {
   updateQuoteStatus,
   updateContactStatus,
 } from '@/lib/db';
+import { getSession } from '@/lib/auth';
 
-// Simple authentication - replace with proper auth in production
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'change-me-in-production';
-
-function authenticate(req: NextRequest): boolean {
-  const authHeader = req.headers.get('authorization');
-  if (!authHeader) return false;
-
-  const [type, credentials] = authHeader.split(' ');
-  if (type !== 'Bearer') return false;
-
-  return credentials === ADMIN_PASSWORD;
+async function checkAuth() {
+  const session = await getSession();
+  return session.isLoggedIn;
 }
 
 // GET /api/admin/submissions?type=quotes|contacts|newsletter
 export async function GET(req: NextRequest) {
-  if (!authenticate(req)) {
+  const authorized = await checkAuth();
+  if (!authorized) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -54,7 +48,8 @@ export async function GET(req: NextRequest) {
 
 // PATCH /api/admin/submissions - Update status
 export async function PATCH(req: NextRequest) {
-  if (!authenticate(req)) {
+  const authorized = await checkAuth();
+  if (!authorized) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
