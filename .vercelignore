@@ -35,7 +35,6 @@ coverage/
 !README.md
 
 # Unnecessary for deployment
-scripts/
 CLEANUP-SUMMARY.md
 CLEAR-CACHE-INSTRUCTIONS.md
 
