@@ -30,7 +30,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
     }
   }, []);
 
-  const activeSolution = solutionsData.solutions.find((s) => s.id === selectedId) || solutionsData.solutions[0];
+  const activeSolution = solutionsData.solutions.find((s: any) => s.id === selectedId) || solutionsData.solutions[0];
   const activeSliderImages = activeSolution.sliderImages || [];
   
   const handleSelectProduct = (id: string) => {
@@ -83,7 +83,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
             
             {/* Left Column: Product Cards List */}
             <div className="w-full lg:w-80 shrink-0 flex flex-col gap-4 overflow-x-auto lg:overflow-x-visible lg:max-h-[750px] lg:overflow-y-auto pr-1 pb-4 lg:pb-0 scrollbar-thin">
-              {solutionsData.solutions.map((product) => {
+              {solutionsData.solutions.map((product: any) => {
                 const isActive = product.id === selectedId;
                 const IconComponent = iconMap[product.icon] || FlaskConical;
                 return (
@@ -257,7 +257,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
           description={solutionsData.results.sectionTitle.description} 
         />
         <div className="mt-8 sm:mt-12 space-y-4 max-w-3xl mx-auto">
-          {solutionsData.results.items.map((item, idx) => (
+          {solutionsData.results.items.map((item: any, idx: number) => (
              <Reveal key={item.benefit} delay={idx * 0.1} direction="left">
                <motion.div whileHover={{ x: 6 }} className="flex gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl border border-gray-150 hover:border-[#D1F2F7] hover:shadow transition-all">
                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#E6F7FA] rounded-xl shrink-0">
