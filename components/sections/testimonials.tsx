@@ -9,10 +9,10 @@ const threatCards = [
   {
     title: 'Equipment Failure',
     description: 'Poor quality additives lead to chemical degradation, oil sludge, and premature failure of high-speed CNC machines, gearboxes, and pumps.',
-    image: '/equipment-failure-v2.png',
+    image: '/equipment-failure-v3.webp',
     tag: 'ASSET DEGRADATION',
-    link: '/products/vam-hs-100',
-    alt: 'a damaged industrial gearbox on a factory floor with oil leaking and gears showing severe wear and tear due to chemical failure.',
+    link: '/solutions?product=vam-hs-100',
+    alt: 'Industrial engineers inspecting leaking blue centrifugal pump diagnosing equipment failure',
   },
   {
     title: 'Economic Loss',
@@ -20,15 +20,15 @@ const threatCards = [
     image: '/economic-loss-v2.png',
     tag: 'FINANCIAL IMPACT',
     link: '/products/sustainable-polyols',
-    alt: 'a modern manufacturing facility control room with a large glowing financial dashboard showing factory uptime and supply chain metrics.',
+    alt: 'Industrial plant uptime monitoring and financial loss prevention through Valtrix advanced materials supply chain reliability',
   },
   {
     title: 'Surface Degradation',
     description: 'Unprotected or improperly specified materials degrade rapidly in harsh environments, compounding maintenance costs and compliance risk.',
-    image: '/surface-degradation-v2.png',
+    image: '/surface-degradation-v3.png',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
-    alt: 'a macro photograph highlighting surface degradation, deep oxidation, and rust textures forming on a structural industrial metal beam.',
+    alt: 'Industrial pipe flange corrosion and rust inspection prevented by Valtrix corrosion inhibitors and surface treatments',
   },
 ];
 

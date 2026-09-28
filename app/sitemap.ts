@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '', priority: 1.0, changeFreq: 'weekly' as const },
     { route: '/about', priority: 0.9, changeFreq: 'monthly' as const },
     { route: '/solutions', priority: 1.0, changeFreq: 'weekly' as const },
+    { route: '/industrial-additives', priority: 1.0, changeFreq: 'weekly' as const },
     { route: '/industries', priority: 0.8, changeFreq: 'monthly' as const },
     { route: '/contact', priority: 0.8, changeFreq: 'monthly' as const },
     { route: '/privacy-policy', priority: 0.3, changeFreq: 'yearly' as const },

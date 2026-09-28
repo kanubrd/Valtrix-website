@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, ShieldCheck, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
 import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/validation';
 
 import { trackEvent } from '@/lib/gtag';
@@ -192,7 +192,6 @@ export function ContactContent() {
                   {fieldErrors.name && (
                     <p id="name-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.name}</p>
                   )}
-                  <span className="text-xs text-gray-400 block mt-1 text-right">{formData.name.length}/100</span>
                 </div>
 
                 {/* Email */}
@@ -215,7 +214,6 @@ export function ContactContent() {
                   {fieldErrors.email && (
                     <p id="email-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.email}</p>
                   )}
-                  <span className="text-xs text-gray-400 block mt-1 text-right">{formData.email.length}/254</span>
                 </div>
               </div>
 
@@ -292,7 +290,22 @@ export function ContactContent() {
                 {fieldErrors.message && (
                   <p id="message-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.message}</p>
                 )}
-                <span className="text-xs text-gray-400 block mt-1 text-right">{formData.message.length}/5000</span>
+              </div>
+
+              {/* B2B Trust Signals inside Form */}
+              <div className="grid grid-cols-3 gap-2 py-3 px-2 rounded-xl bg-gray-50 border border-gray-100 mb-5 text-center">
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5">
+                  <Clock size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>&lt;2h Response</span>
+                </div>
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5 border-x border-gray-200">
+                  <ShieldCheck size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>NDA Protected</span>
+                </div>
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5">
+                  <CheckCircle2 size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>Chemist Verified</span>
+                </div>
               </div>
 
               {status === 'success' ? (
@@ -307,7 +320,7 @@ export function ContactContent() {
                     type="submit"
                     disabled={status === 'loading'}
                     aria-busy={status === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-xl font-semibold transition-all duration-300 min-h-[52px]"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-xl font-bold transition-all duration-300 min-h-[52px] shadow-sm hover:shadow text-base"
                   >
                     {status === 'loading' ? (
                       <span className="flex items-center gap-2">
@@ -315,12 +328,12 @@ export function ContactContent() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Sending...
+                        Sending Request...
                       </span>
                     ) : (
                       <>
-                        <span>Send Message</span>
-                        <Send size={18} />
+                        <span>Request a Quote Now</span>
+                        <ArrowRight size={18} />
                       </>
                     )}
                   </motion.button>
@@ -345,22 +358,50 @@ export function ContactContent() {
       {/* GEO Google Maps Location & Plant Tour Section */}
       <Section className="bg-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle 
-            subtitle="VISIT OUR PLANT" 
-            title="Vadodara, Gujarat Manufacturing Facility" 
-            description="Locate Valtrix Advance Material Pvt. Ltd. in Vadodara Industrial Area for direct chemical audits and plant consultations."
-          />
-          <div className="mt-8 rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/9] max-h-[450px] w-full">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <SectionTitle 
+              subtitle="VISIT OUR PLANT" 
+              title="Vadodara, Gujarat Manufacturing Facility" 
+              description="Locate Valtrix Advance Material Pvt. Ltd. in Vadodara Industrial Area for direct chemical audits and plant consultations."
+              className="text-left mb-0"
+            />
+            <a
+              href="https://maps.google.com/?q=22.3486,73.1812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#17A2B8] text-white font-semibold text-sm hover:bg-[#138496] transition-colors shadow-md hover:shadow-lg shrink-0 self-start md:self-auto"
+            >
+              <MapPin size={16} />
+              Open in Google Maps
+              <ExternalLink size={14} />
+            </a>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative w-full h-[380px] sm:h-[460px] bg-[#EBF2F7]">
             <iframe
               title="Valtrix Advance Material Pvt. Ltd. Vadodara Gujarat office location map"
-              src="https://maps.google.com/maps?q=Valtrix+Advance+Material+Pvt+Ltd+Vadodara+Gujarat&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
+              src="https://www.google.com/maps?q=22.3486,73.1812+(Valtrix+Advance+Material+Pvt+Ltd)&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+              className="w-full h-full border-0"
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+          </div>
+
+          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600 bg-gray-50 px-5 py-3.5 rounded-xl border border-gray-200">
+            <div className="flex items-center gap-2">
+              <MapPin size={15} className="text-[#17A2B8] shrink-0" />
+              <span className="font-medium text-gray-800">Address:</span>
+              <span>318, Fortune Gateway, Chhani, Vadodara - 390024, Gujarat, India</span>
+            </div>
+            <a
+              href="https://maps.google.com/?q=22.3486,73.1812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#17A2B8] hover:underline font-semibold flex items-center gap-1 shrink-0"
+            >
+              Get Turn-by-Turn Directions &rarr;
+            </a>
           </div>
         </div>
       </Section>

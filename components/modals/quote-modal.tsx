@@ -128,6 +128,8 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
                     type="text"
                     placeholder="Your name *"
                     value={quoteName}
+                    aria-invalid={!!errors.name}
+                    aria-required="true"
                     onChange={(e) => {
                       setQuoteName(e.target.value);
                       if (errors.name) setErrors(prev => { const n = {...prev}; delete n.name; return n; });
@@ -164,6 +166,8 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
                   type="email"
                   placeholder="Work email *"
                   value={quoteEmail}
+                  aria-invalid={!!errors.email}
+                  aria-required="true"
                   onChange={(e) => {
                     setQuoteEmail(e.target.value);
                     if (errors.email) setErrors(prev => { const n = {...prev}; delete n.email; return n; });
@@ -182,6 +186,7 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
                 <button
                   type="button"
                   onClick={() => setProductsOpen((o) => !o)}
+                  aria-expanded={productsOpen}
                   className="w-full flex items-center justify-between px-3 py-2.5 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
                 >
                   <span className="text-sm font-semibold text-[#2C3E50]">

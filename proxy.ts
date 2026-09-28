@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 let cachedRedirects: Array<{ source: string; destination: string }> | null = null;
 let lastCacheUpdate = 0;
-const CACHE_TTL = 5000; // 5 seconds in ms
+const CACHE_TTL = 60_000; // 60 seconds cache
 
 // Security proxy for additional protection (replaces middleware in Next.js 16)
 export async function proxy(request: NextRequest) {
@@ -30,11 +30,19 @@ export async function proxy(request: NextRequest) {
       if (!cachedRedirects || now - lastCacheUpdate > CACHE_TTL) {
         const origin = request.nextUrl.origin;
         const res = await fetch(`${origin}/api/admin/redirects`, {
-          headers: { 'x-internal-request': 'true' }
+          headers: { 'x-internal-request': 'true' },
+          signal: AbortSignal.timeout(1500),
         });
         if (res.ok) {
-          cachedRedirects = await res.json();
-          lastCacheUpdate = now;
+          try {
+            const text = await res.text();
+            if (text && text.trim()) {
+              cachedRedirects = JSON.parse(text);
+              lastCacheUpdate = now;
+            }
+          } catch {
+            // Silently ignore malformed JSON
+          }
         }
       }
 

@@ -3,24 +3,21 @@ import { getIndustries } from '@/lib/content-utils';
 import { IndustriesContent } from './industries-content';
 
 export const metadata: Metadata = {
-  title: 'Automotive Manufacturing, Maintenance & Repair Industries | Valtrix Advance Material Pvt. Ltd.',
-  description: 'Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+  title: 'Target Industries & Market Segments | Valtrix Vadodara',
+  description: 'Valtrix Advance Material engineers custom specialty chemical additives, metalworking fluids, and surface treatments for automotive, CNC machining, electroplating, and heavy industrial operations in Vadodara, Gujarat.',
   keywords: [
-    'Automotive Manufacturing',
-    'Maintenance & Repair',
-    'General Industrial',
-    'Market Segments',
-    'Rust Converter VAM RC 01',
-    'Polyurethane Building Blocks',
-    'High Build Coatings',
-    'industrial additives',
+    'Automotive Manufacturing chemicals',
+    'Metalworking fluid additives',
+    'Electroplating chemicals',
+    'Surface treatment additives',
+    'industrial additives Vadodara',
     'Valtrix Advance Material Pvt. Ltd.',
     'Vadodara Gujarat',
-    'ISO 9001:2015'
+    'ISO 9001:2024'
   ],
   openGraph: {
-    title: 'Automotive Manufacturing, Maintenance & Repair Industries | Valtrix Advance Material Pvt. Ltd.',
-    description: 'Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+    title: 'Target Industries & Market Segments | Valtrix Vadodara',
+    description: 'Valtrix Advance Material engineers custom specialty chemical additives, metalworking fluids, and surface treatments for automotive, CNC machining, electroplating, and heavy industrial operations in Vadodara, Gujarat.',
     url: 'https://www.valtrixmaterials.com/industries',
     type: 'website',
   },
@@ -36,19 +33,24 @@ export default function IndustriesPage() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Valtrix Advance Material Pvt. Ltd.',
-    description: 'Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+    description: 'Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat. ISO 9001:2024 certified.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Vadodara Industrial Area',
+      streetAddress: '318, Fortune Gateway, Chhani',
       addressLocality: 'Vadodara',
       addressRegion: 'Gujarat',
-      postalCode: '390010',
+      postalCode: '390024',
       addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '22.3072',
+      longitude: '73.1812'
     },
     telephone: '+91 98981 23983',
     email: 'info@valtrixmaterials.com',
     url: 'https://www.valtrixmaterials.com',
-    certifications: 'ISO Certified'
+    certifications: 'ISO 9001:2024 Certified'
   };
 
   const faqJsonLd = {

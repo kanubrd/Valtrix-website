@@ -60,10 +60,14 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
     setProductSlideIndex(0);
     
     // Smooth scroll to the details section on mobile
-    if (window.innerWidth < 1024) {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
       const detailsEl = document.getElementById('selected-product-details');
       if (detailsEl) {
-        detailsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(detailsEl, { offset: -80 });
+        } else {
+          detailsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     }
   };
@@ -96,6 +100,32 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
           </p>
         </div>
       </section>
+
+      {/* Featured Banner: Technical Additive Packages & Formulations */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+        <div className="rounded-2xl bg-white border border-[#17A2B8]/30 p-5 sm:p-6 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <span className="p-3 rounded-xl bg-[#17A2B8]/10 text-[#17A2B8] shrink-0">
+              <Sparkles className="h-6 w-6" />
+            </span>
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wider text-[#17A2B8]">Technical Authority Guide</div>
+              <h2 className="text-base sm:text-lg font-bold text-[#2C3E50]">
+                Looking for Industrial Additives &amp; ASTM-Benchmarked Formulations?
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Explore our full engineering breakdown across Automotive, Metalworking, Electroplating, and Surface Treatment.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/industrial-additives"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#17A2B8] text-white text-xs sm:text-sm font-bold hover:bg-[#138496] transition-all shadow-sm hover:shadow"
+          >
+            Explore Technical Guide <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
 
       {/* Specialty Solutions Interactive Product Catalog */}
       <Section id="solutions-catalog" className="py-16 sm:py-24 bg-[#F8FAFB]">
@@ -179,8 +209,9 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                           <div className="relative w-full h-full flex items-center justify-center p-4">
                             <Image
                               src={activeSliderImages[productSlideIndex].src}
-                              alt={activeSliderImages[productSlideIndex].alt || `industrial additive preventing corrosion in machinery - ${activeSolution.title}`}
+                              alt={activeSliderImages[productSlideIndex].alt || `${activeSolution.title} - High-Performance Industrial Chemical Additive by Valtrix Vadodara`}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
                               className={`object-contain ${
                                 activeSolution.id === 'vamshield-90' && productSlideIndex === 0 ? 'p-1' : 'p-2'
                               }`}
@@ -265,8 +296,9 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
 
                       {/* CTA Button */}
                       <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
-                        <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#17A2B8] text-white text-sm font-semibold shadow-sm hover:shadow min-h-[48px]" style={{ borderRadius: '12px' }}>
-                          Contact Technical Engineering Team <ArrowRight size={16} />
+                        <Link href="/contact" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] text-white text-sm font-bold shadow-md hover:shadow-lg min-h-[48px] transition-all duration-300" style={{ borderRadius: '12px' }}>
+                          <span>Request a Quote Now</span>
+                          <ArrowRight size={16} />
                         </Link>
                       </motion.div>
                     </div>
@@ -291,7 +323,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
               Custom Industrial Additives &amp; Material Protection
             </h2>
             <p className="text-slate-600 text-base leading-relaxed font-medium">
-              Engineered &amp; Synthesized in Vadodara, Gujarat under ISO 9001:2015 quality controls. Valtrix custom additive formulations deliver robust corrosion resistance, eliminate sludge formation, and guarantee up to 45% annual downtime reduction across heavy industrial manufacturing.
+              Engineered &amp; Synthesized in Vadodara, Gujarat under ISO 9001:2024 quality controls. Valtrix custom additive formulations deliver robust corrosion resistance, eliminate sludge formation, and guarantee up to 45% annual downtime reduction across heavy industrial manufacturing.
             </p>
           </div>
 
@@ -413,7 +445,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                 Engineered &amp; Synthesized in Vadodara, Gujarat
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
-                Valtrix Advance Material Pvt. Ltd. operates an ISO 9001:2015 certified plant in Vadodara, Gujarat delivering custom additive blending and material protection.
+                Valtrix Advance Material Pvt. Ltd. operates an ISO 9001:2024 certified plant in Vadodara, Gujarat delivering custom additive blending and material protection.
               </p>
             </div>
             <Link
@@ -452,6 +484,103 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
           ))}
         </div>
       </Section>
+
+      {/* ── Engineering Procedure: HowTo Guide Section (AEO & Process SEO) ── */}
+      <section id="conversion-procedure" className="py-16 sm:py-24 bg-[#F8FAFB] border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E6F7FA] text-[#17A2B8] border border-[#D1F2F7] mb-3">
+              <Sparkles size={14} /> Standard Operating Procedure (SOP)
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              How to Convert CNC Machine Sumps to VAM-CoolSyn™ Biostable Fluids
+            </h2>
+            <p className="text-slate-600 text-base leading-relaxed font-medium">
+              A 5-step engineering conversion protocol validated by Valtrix field chemists to prevent bacterial shock, eliminate foaming, and maximize tool life during fluid changeovers.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Steps Column */}
+            <div className="lg:col-span-8 space-y-4">
+              {[
+                {
+                  step: 1,
+                  title: 'In-System Cleaner & Biocide Pre-Treatment',
+                  desc: 'Add 1% to 2% VAM System Cleaner concentrate directly to the depleted coolant 8 hours prior to shutdown while running regular production to penetrate biofilm in coolant lines.',
+                  tag: 'T - 8 Hours'
+                },
+                {
+                  step: 2,
+                  title: 'Mechanical Sump Drain & Tramp Oil Extraction',
+                  desc: 'Completely pump out depleted fluid, vacuum settled swarf and metallic chips from the sump bottom, and skim all free tramp oil from hydraulic leaks.',
+                  tag: 'Step 2'
+                },
+                {
+                  step: 3,
+                  title: 'Demineralized Water High-Pressure Rinse',
+                  desc: 'Circulate a 1% light rinse batch through machine lines for 15 minutes to flush dislodged fungal particulates, then pump dry.',
+                  tag: 'Step 3'
+                },
+                {
+                  step: 4,
+                  title: 'Fresh VAM-CoolSyn™ Charge & Refractometer Calibration',
+                  desc: 'Charge the sump with fresh demineralized water and add VAM-CoolSyn™ concentrate to achieve an 8%–10% Brix refractometer reading (Brix factor 1.0).',
+                  tag: 'Step 4'
+                },
+                {
+                  step: 5,
+                  title: '48-Hour Fluid Telemetry & pH Baseline Verification',
+                  desc: 'Verify initial pH stabilizes at 9.2–9.4. Check tramp oil coalescer operation and record refractometer readings daily for continuous biostatic equilibrium.',
+                  tag: 'Verification'
+                }
+              ].map((s) => (
+                <div key={s.step} className="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-xs flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] font-black text-base flex items-center justify-center shrink-0">
+                    {s.step}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <h3 className="font-bold text-base text-[#2C3E50]">{s.title}</h3>
+                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-gray-100 text-gray-600 shrink-0">{s.tag}</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Specs / Tool Sidebar */}
+            <div className="lg:col-span-4 bg-white p-6 sm:p-7 rounded-2xl border border-gray-200/80 shadow-xs">
+              <h3 className="font-bold text-[#2C3E50] text-base mb-4 flex items-center gap-2">
+                <CheckCircle size={18} className="text-[#17A2B8]" /> Conversion Requirements
+              </h3>
+              <div className="space-y-4 text-xs sm:text-sm text-gray-600">
+                <div>
+                  <strong className="block text-[#2C3E50] mb-1">Tools Required:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Optical / Digital Brix Refractometer</li>
+                    <li>Calibrated Digital pH Meter (pH 0–14)</li>
+                    <li>Sump Vacuum Cleaner &amp; Sludge Pump</li>
+                  </ul>
+                </div>
+                <div className="pt-3 border-t border-gray-100">
+                  <strong className="block text-[#2C3E50] mb-1">Supplies Needed:</strong>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>VAM System Cleaner Concentrate</li>
+                    <li>VAM-CoolSyn™ Biostable Coolant</li>
+                    <li>Demineralized / RO Makeup Water (&lt;100 ppm hardness)</li>
+                  </ul>
+                </div>
+                <div className="pt-3 border-t border-gray-100">
+                  <strong className="block text-[#2C3E50] mb-1">Total Estimated Time:</strong>
+                  <p>Approximately 4 hours per machine tool.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Bottom CTA Banner */}
       <Section className="bg-[#2C3E50] text-white text-center py-12 sm:py-16 md:py-20">

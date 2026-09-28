@@ -28,9 +28,10 @@
     ],
     "images": {
       "hero": "/images/solutions/coatings-chemicals.webp",
-      "product": "/images/additives.jpg",
+      "product": "/vam-rc-01-beaker.webp",
       "gallery": [
-        { "src": "/images/additives.jpg", "alt": "Rust Converter VAM RC 01 preventing corrosion on automotive parts", "title": "Automotive Part Application" },
+        { "src": "/vam-rc-01-beaker.webp", "alt": "Rust Converter VAM RC 01 beaker sample formulation", "title": "Formulation Sample" },
+        { "src": "/vam-rc-01-application.webp", "alt": "Rust Converter VAM RC 01 preventing corrosion on automotive parts", "title": "Automotive Part Application" },
         { "src": "/vamshield-90-metal-cutting.png", "alt": "Rust Converter VAM RC 01 heavy industrial machinery treatment", "title": "Industrial Machinery" }
       ]
     },
@@ -311,10 +312,11 @@
       { "label": "Download Technical Sheets", "href": "/resources/downloads?product=coatings-chemicals", "type": "secondary" }
     ],
     "images": { 
-      "hero": null, 
-      "product": "/images/additives.jpg", 
+      "hero": "/surface-treatment-hero-new.webp", 
+      "product": "/pre-treatment-systems.webp", 
       "gallery": [
-        { "src": "/images/additives.jpg", "alt": "Surface Treatment Chemicals preventing sludge and rust", "title": "Surface Treatment" }
+        { "src": "/pre-treatment-systems.webp", "alt": "Pre-treatment systems and chemicals preventing sludge and rust", "title": "Pre-treatment Systems" },
+        { "src": "/phosphate-conversion-coatings.webp", "alt": "Phosphate conversion coatings for enhanced adhesion", "title": "Conversion Coatings" }
       ] 
     },
     "seo": {
@@ -351,9 +353,10 @@
     ],
     "images": { 
       "hero": null, 
-      "product": "/suspol.png", 
+      "product": "/suspol-125-beaker-clean-v9-clear.webp", 
       "gallery": [
-        { "src": "/suspol.png", "alt": "Bio Based Sustainable Polyols derived from renewable cashew nut shell liquid", "title": "Polyol Sample" }
+        { "src": "/suspol-125-beaker-clean-v9-clear.webp", "alt": "Bio Based Sustainable Polyols derived from renewable cashew nut shell liquid", "title": "Polyol Sample" },
+        { "src": "/suspol-125-application.webp", "alt": "Suspol bio-based polyol industrial application and casting", "title": "Industrial Application" }
       ] 
     },
     "seo": {

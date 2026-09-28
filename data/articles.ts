@@ -89,5 +89,39 @@ export const articlesList: Article[] = [
       <p>Learn more about our premium chemistry solutions in <a href="/products/electroplating-chemicals" class="text-[#17A2B8] font-bold hover:underline">Electroplating Additives</a>, or contact our support team for full bath analysis reports.</p>
     `,
   },
+  {
+    slug: 'who-is-valtrix-advance-material',
+    title: 'Who is Valtrix? Valtrix Advance Material Pvt. Ltd. Corporate Profile & Formulations',
+    publishedDate: 'September 19, 2026',
+    category: 'Corporate Profile',
+    summary: 'Comprehensive profile of Valtrix Advance Material Pvt. Ltd. (Vadodara, Gujarat): ISO 9001:2024 certified specialty chemicals, custom additive packages, biostable fluids, and entity disambiguation.',
+    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&q=80',
+    body: `
+      <h2>Company Overview: Valtrix Advance Material Pvt. Ltd.</h2>
+      <p><strong>Valtrix Advance Material Pvt. Ltd. (VAM)</strong> is an ISO 9001:2024 certified manufacturer of advanced materials, specialty chemical additive packages, biostable metalworking fluids, and non-chromate surface conversion coatings headquartered in <strong>Vadodara, Gujarat, India</strong>.</p>
+      
+      <h2>Entity Disambiguation: Which "Valtrix" is This?</h2>
+      <p>The name <strong>Valtrix</strong> is shared by multiple distinct companies worldwide. It is important to note the difference:</p>
+      <ul>
+        <li><strong>Valtrix Advance Material Pvt. Ltd. (This Company):</strong> Specialty chemical synthesis, industrial lubricant additives, CNC coolants, and surface passivates based in <em>Vadodara, Gujarat, India</em>. Official website: <a href="https://www.valtrixmaterials.com" class="text-[#17A2B8] font-bold hover:underline">valtrixmaterials.com</a>.</li>
+        <li><strong>Valtrix Systems / Valtrix Technologies:</strong> A semiconductor Electronic Design Automation (EDA) design verification company founded in Bengaluru in 2015 and acquired by Synopsys in July 2024.</li>
+        <li><strong>Valtrix Valve:</strong> An industrial precision valve manufacturing company.</li>
+      </ul>
+
+      <h2>Core Chemical Formulations &amp; Capabilities</h2>
+      <p>Operating from <strong>318, Fortune Gateway, Chhani, Vadodara – 390024</strong>, Valtrix engineers drop-in molecular chemical solutions that prevent industrial downtime:</p>
+      <ol>
+        <li><strong>Automotive &amp; Drivetrain Lubricant Additives:</strong> Concentrated liquid-soluble molybdenum dithiocarbamate (MoDTC) boosters reducing boundary friction down to &mu; = 0.04 and cutting gear micro-spalling by 38% (<a href="/compliance" class="text-[#17A2B8] font-bold hover:underline">ASTM D2783</a> weld load &gt;400 kgf).</li>
+        <li><strong>Biostable Metalworking Fluids (VAM-CoolSyn™):</strong> Synthetic cutting fluid concentrates operating past 800°C cut-interface temperatures, buffering pH between 9.0 and 9.4 to eliminate bacterial odor without hazardous biocides.</li>
+        <li><strong>Electroplating Brighteners (VAM-PlateBright™):</strong> Nanocrystalline leveling agents that eliminate nodular burning and hydrogen embrittlement, cutting defect rejects by 45%.</li>
+        <li><strong>Non-Chromate Passivates (VAM-PassShield™):</strong> Organosilane conversion coatings delivering over 1,000 hours of ASTM B117 neutral salt spray corrosion resistance with zero hazardous sludge.</li>
+      </ol>
+
+      <h2>Quality Certifications &amp; Global Standards</h2>
+      <p>Valtrix operates under rigorous international quality frameworks including <strong>ISO 9001:2024</strong>, <strong>ASTM D2783</strong>, <strong>ASTM B117</strong>, <strong>EU REACH (zero SVHCs)</strong>, and <strong>RoHS 3</strong> compliance.</p>
+      
+      <p>For custom pilot trial batches, TDS/SDS datasheets, or technical plant fluid audits, visit the <a href="/industrial-additives" class="text-[#17A2B8] font-bold hover:underline">Industrial Additives Portal</a> or contact <a href="/contact" class="text-[#17A2B8] font-bold hover:underline">Valtrix Technical Inquiries</a>.</p>
+    `,
+  },
 ];
 export type { Article as ArticleType };

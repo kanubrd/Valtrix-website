@@ -109,6 +109,7 @@ export default function NotFound() {
             </div>
             <input
               type="text"
+              aria-label="Search site links"
               placeholder="Search active site links (e.g. products, specs)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

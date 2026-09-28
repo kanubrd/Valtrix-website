@@ -129,6 +129,7 @@ export function ImageUploader({ currentImage, onUpload, minWidth = 1600, label =
             src={preview}
             alt="Preview"
             fill
+            sizes="(max-width: 768px) 100vw, 400px"
             className="object-contain p-2"
           />
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -11,6 +12,32 @@ interface ModalProps {
 }
 
 export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // Lock body scroll and pause Lenis
+    document.body.style.overflow = 'hidden';
+    if (typeof window !== 'undefined' && (window as any).lenis) {
+      (window as any).lenis.stop();
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      if (typeof window !== 'undefined' && (window as any).lenis) {
+        (window as any).lenis.start();
+      }
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -26,6 +53,9 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
 
           {/* Modal */}
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -36,8 +66,10 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
                 <button
+                  type="button"
                   onClick={onClose}
-                  className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Close modal"
+                  className="p-1 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5 text-gray-500" />
                 </button>

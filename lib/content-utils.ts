@@ -6,10 +6,9 @@ const CONTENT_DIR = path.join(process.cwd(), 'data', 'content');
 const DRAFTS_DIR = path.join(process.cwd(), 'data', 'drafts');
 const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 
-// Ensure directories exist
-[CONTENT_DIR, DRAFTS_DIR, UPLOADS_DIR].forEach((dir) => {
+function ensureDir(dir: string): void {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-});
+}
 
 // ─── Generic JSON helpers ─────────────────────────────────
 function readJSON<T>(filename: string): T {
@@ -20,6 +19,7 @@ function readJSON<T>(filename: string): T {
 }
 
 function writeJSON<T>(filename: string, data: T): void {
+  ensureDir(CONTENT_DIR);
   const filePath = path.join(CONTENT_DIR, filename);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
 }
@@ -36,6 +36,7 @@ export interface IndustrySegment {
   name: string;
   description: string;
   image: string;
+  icon?: string;
 }
 
 export interface IndustryProduct {
@@ -58,6 +59,7 @@ export interface Industry {
   tagColor: IndustryTagColor;
   description: string;
   listingImage: string;
+  homeImage?: string;
   hero: {
     image: string;
     imageAlt?: string;
@@ -72,6 +74,8 @@ export interface Industry {
   segments: IndustrySegment[];
   segmentsSectionTitle?: string;
   segmentsSectionSubtitle?: string;
+  segmentsSectionImage?: string;
+  segmentsSectionAnimatedImage?: string;
   products: IndustryProduct[];
   productsSectionSubtitle?: string;
   benefits: string[];
@@ -257,6 +261,7 @@ export function getSolutionResults(): SolutionResult[] {
 
 // ─── Draft helpers ────────────────────────────────────────
 export function saveDraft(type: string, id: string, data: unknown): void {
+  ensureDir(DRAFTS_DIR);
   const filePath = path.join(DRAFTS_DIR, `${type}-${id}.json`);
   fs.writeFileSync(
     filePath,

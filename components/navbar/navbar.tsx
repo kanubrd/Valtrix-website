@@ -19,20 +19,25 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled]         = useState(false);
+  const [scrollY, setScrollY]               = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted]               = useState(false);
   const [industriesHovered, setIndustriesHovered] = useState(false);
   const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage                           = pathname === '/';
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrollY(window.scrollY);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const isScrolled = mounted ? scrollY > 20 : false;
+  // Over the video hero section on the homepage
+  const isOverVideo = isHomePage && (mounted ? scrollY < 540 : true);
 
   useEffect(() => { setMobileMenuOpen(false); }, [pathname]);
 
@@ -51,24 +56,22 @@ export function Navbar() {
         (window as any).lenis.start();
       }
     }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    if (mobileMenuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
     return () => { 
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
       if ((window as any).lenis) {
         (window as any).lenis.start();
       }
     };
   }, [mobileMenuOpen]);
-
-  // Render a lightweight placeholder during SSR & first client render
-  // to avoid hydration mismatch from browser CSS normalization
-  if (!mounted) {
-    return (
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <div style={{ height: 28, background: '#1A2B3C', borderBottom: 'none' }} />
-        <nav style={{ height: 72, background: '#FFFFFF', borderBottom: '2px solid #E5E7EB' }} />
-      </header>
-    );
-  }
 
   if (pathname && pathname.startsWith('/admin')) {
     return null;
@@ -82,8 +85,9 @@ export function Navbar() {
         <div
           className="transition-all duration-300 overflow-hidden"
           style={{ 
-            background: '#1A2B3C',
-            borderBottom: 'none',
+            background: isOverVideo ? 'rgba(15, 23, 42, 0.45)' : '#1A2B3C',
+            backdropFilter: isOverVideo ? 'blur(10px)' : 'none',
+            borderBottom: isOverVideo ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
             position: 'relative',
             height: isScrolled ? 0 : 28,
           }}
@@ -118,15 +122,23 @@ export function Navbar() {
           suppressHydrationWarning
           className={cn(
             'transition-all duration-300',
-            isScrolled 
+            !isOverVideo && isScrolled 
               ? 'shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.04)]' 
-              : 'shadow-sm',
+              : isOverVideo ? 'shadow-none' : 'shadow-sm',
           )}
           style={{
             height: isScrolled ? 64 : 72,
-            background: isScrolled ? 'rgba(255, 255, 255, 0.7)' : '#FFFFFF',
+            background: isOverVideo 
+              ? 'rgba(255, 255, 255, 0.25)' 
+              : isScrolled 
+                ? 'rgba(255, 255, 255, 0.95)' 
+                : '#FFFFFF',
             backdropFilter: 'blur(16px)',
-            borderBottom: isScrolled ? '1px solid rgba(0, 0, 0, 0.06)' : '1px solid rgba(0, 0, 0, 0.04)',
+            borderBottom: isOverVideo 
+              ? '1px solid rgba(255, 255, 255, 0.25)' 
+              : isScrolled 
+                ? '1px solid rgba(0, 0, 0, 0.06)' 
+                : '1px solid rgba(0, 0, 0, 0.04)',
             position: 'relative',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -134,10 +146,10 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
           {/* Logo — Ultra HD clean rendering */}
-          <Link href="/" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
+          <Link href="/" aria-label="Valtrix - Valtrix Advance Material Official Home" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
             <Image
               src="/valtrix-logo-teal.png"
-              alt="VAM VALTRIX Logo"
+              alt="Valtrix - Valtrix Advance Material Official Logo"
               width={140}
               height={55}
               sizes="(max-width: 768px) 140px, 172px"
@@ -307,7 +319,7 @@ export function Navbar() {
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
               >
-                Request a Quote
+                Request a Quote Now
               </Link>
             </motion.div>
           </div>
@@ -328,6 +340,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -361,6 +374,9 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-navigation"
+        role="navigation"
+        aria-label="Mobile Navigation Menu"
         className={cn(
           'fixed left-0 right-0 z-40 md:hidden transition-all duration-300',
           mobileMenuOpen
@@ -403,7 +419,7 @@ export function Navbar() {
               }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Request a Quote
+              Request a Quote Now
             </Link>
           </div>
         </div>

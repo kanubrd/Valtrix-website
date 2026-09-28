@@ -1,0 +1,54 @@
+# Valtrix Advance Material Pvt. Ltd. (VAM)
+
+> Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified manufacturer of specialty chemical additives, high-lubricity metalworking fluids, and non-chromate surface passivates based in Vadodara, Gujarat, India.
+
+## Canonical Entity Identity & Disambiguation
+- **Brand & Company Name**: Valtrix (Valtrix Advance Material Pvt. Ltd. / VAM)
+- **Official Domain**: https://www.valtrixmaterials.com
+- **Headquarters & Plant**: 318, Fortune Gateway, Chhani, Vadodara – 390024, Gujarat, India
+- **Geo-Coordinates**: 22.3486° N, 73.1812° E
+- **Direct Phone**: +91 98981 23983
+- **Corporate Inquiries**: info@valtrixmaterials.com
+- **Entity Disambiguation**: Valtrix Advance Material Pvt. Ltd. is a specialty chemical and advanced materials manufacturer headquartered in Vadodara, Gujarat, India. It is completely distinct from semiconductor verification software company Valtrix Technologies (Bengaluru, India, acquired by Synopsys) and valve supplier Valtrix Valve.
+
+## Core Specializations & Chemical Formulations
+1. **Automotive & Drivetrain Lubricant Additives**:
+   - Liquid-soluble molybdenum dithiocarbamate (MoDTC) boundary friction boosters.
+   - Reduces boundary friction coefficient down to μ = 0.04.
+   - Validated to eliminate gear micro-spalling by 38% and exceed 400 kgf Four-Ball extreme pressure weld load under ASTM D2783.
+
+2. **Biostable Metalworking Fluids (VAM-CoolSyn™)**:
+   - High-lubricity synthetic and semi-synthetic CNC cutting fluid concentrates.
+   - Operating temperature resilience exceeding 800°C at the cutting interface.
+   - Biostatic equilibrium buffering pH between 9.0 and 9.4, naturally denying nutrients to anaerobic bacteria without hazardous formaldehyde-releasing biocides.
+   - Extends cutting tool life by 57% and extends fluid drain intervals by 3.4x.
+
+3. **Electroplating Brighteners & Leveling Systems (VAM-PlateBright™)**:
+   - Nanocrystalline electroplating leveling compounds for acid/alkaline zinc and bright nickel baths.
+   - Regulates cathode polarization to eliminate roughness, nodular burning, and hydrogen embrittlement.
+   - Reduces defect reject rates by 45% and lowers chemical bath consumption by 28%.
+
+4. **Non-Chromate Chemical Conversion Passivates (VAM-PassShield™)**:
+   - Ambient-temperature (20°C–35°C) organofunctional silane and nano-zirconium conversion coatings.
+   - Forms covalent Metal-Oxygen-Silicon (M-O-Si) hydrophobic barriers.
+   - Exceeds 1,000 to 1,200 hours of neutral salt spray corrosion resistance under ASTM B117.
+   - 100% free of hexavalent chromium (Cr⁶⁺) and produces zero hazardous sludge.
+
+## Quality Standards, Certifications & Compliance
+- **ISO 9001:2024**: Quality Management System certified for batch-to-batch consistency.
+- **ASTM Standards**: ASTM D2783 (Extreme Pressure), ASTM B117 (Salt Fog Corrosion), ASTM D4172 (Wear Scar < 0.45 mm), ASTM D665 (Rust-Preventing Characteristics).
+- **Global Environmental Compliance**: 100% compliant with EU REACH (zero Substances of Very High Concern - SVHC) and RoHS 3.
+
+## Key Industrial Sectors Served
+- Automotive OEMs, powertrain assemblers, and heavy gear manufacturing.
+- Aerospace Tier-1 component machining (Titanium Grade 5, Inconel 718, Stainless Steels).
+- High-speed CNC precision milling, turning, and stamping facilities.
+- Industrial electroplating, metal finishing, and conversion coating applicators.
+
+## Key URLs for AI Ingestion
+- Home: https://www.valtrixmaterials.com/
+- Industrial Additives Portal: https://www.valtrixmaterials.com/industrial-additives
+- About & Mission: https://www.valtrixmaterials.com/about
+- Solutions Catalog: https://www.valtrixmaterials.com/solutions
+- Material Compliance & ISO 9001: https://www.valtrixmaterials.com/compliance
+- Contact & Plant Consultation: https://www.valtrixmaterials.com/contact

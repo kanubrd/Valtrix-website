@@ -15,7 +15,9 @@ import {
   Mail, 
   Phone, 
   ChevronLeft, 
-  ChevronRight as ChevronRightIcon 
+  ChevronRight as ChevronRightIcon,
+  ChevronDown,
+  CircleHelp
 } from 'lucide-react';
 import { Product } from '@/lib/content-utils';
 import { QuoteModal } from '@/components/modals/quote-modal';
@@ -49,6 +51,27 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
       subtext: 'Contact our technical team for detailed specifications, pricing, and samples.'
     }
   } = product as any; // Cast as any to handle both rich and category structures seamlessly
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const productFaqs = [
+    {
+      q: `What is ${name} and what industrial applications is it engineered for?`,
+      a: `${name} is an ISO 9001:2024 certified specialty chemical formulation engineered by Valtrix Advance Material in Vadodara, Gujarat. Designed specifically for ${category?.toLowerCase() || 'industrial'} applications, it delivers superior boundary lubrication, thermal oxidation stability, and corrosion protection across heavy manufacturing machinery.`
+    },
+    {
+      q: `How does ${name} reduce industrial equipment downtime and maintenance overhead?`,
+      a: `${name} stabilizes chemical and tribological equilibrium under extreme pressures and elevated operating temperatures. By preventing sludge accumulation, micro-pitting, and premature fluid degradation, plants report up to a 42% reduction in unplanned downtime and extended maintenance drain intervals.`
+    },
+    {
+      q: `What are the dosage, dilution, and base oil compatibility recommendations for ${name}?`,
+      a: `Concentrated treat rates typically range from 2% to 10% depending on duty cycle, machine type, and severe load requirements. ${name} offers 100% drop-in miscibility with standard industrial base stocks and mineral/synthetic systems, eliminating expensive machine flushes.`
+    },
+    {
+      q: `Where is ${name} synthesized and how can I request a sample trial batch?`,
+      a: `All formulations are synthesized and ASTM quality-tested at our manufacturing facility: 318, Fortune Gateway, Chhani, Vadodara – 390024, Gujarat, India. Pilot trial batches (up to 20L) are screened and dispatched within 10 to 14 business days with full CoA (Certificate of Analysis) and SDS documentation.`
+    }
+  ];
 
   // Check if we should use the rich layout (like vamshield-90)
   const isRichLayout = slug === 'vamshield-90' || (images.gallery && images.gallery.length > 0);
@@ -175,6 +198,7 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
                               src={gallery[currentSlide].src}
                               alt={gallery[currentSlide].alt}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                               className="object-contain p-4"
                             />
                             <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold">
@@ -285,6 +309,56 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
             </div>
           </section>
         )}
+
+        {/* Technical FAQ Section (AEO & Voice Search) */}
+        <section className="py-16 sm:py-24 bg-[#F8FAFB] border-t border-gray-150">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F7FA] text-[#17A2B8] text-xs font-bold uppercase tracking-wider mb-3">
+                <CircleHelp className="w-3.5 h-3.5" /> Technical FAQ &amp; Procurement
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2C3E50]">
+                Frequently Asked Questions about {name}
+              </h2>
+              <p className="text-sm text-gray-500 mt-2">
+                Direct technical answers for plant engineers, formulation chemists, and maintenance directors
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {productFaqs.map((faq, idx) => (
+                <div key={idx} className="bg-white rounded-2xl border border-gray-200/80 shadow-xs overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left transition-colors hover:bg-gray-50/80"
+                  >
+                    <span className="font-bold text-sm sm:text-base text-[#2C3E50] pr-4">
+                      {faq.q}
+                    </span>
+                    <ChevronDown className={`w-5 h-5 text-[#17A2B8] shrink-0 transition-transform duration-200 ${openFaq === idx ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === idx && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 bg-slate-50/50">
+                          <div className="pl-3 border-l-2 border-[#17A2B8]">
+                            {faq.a}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-[#17A2B8] to-[#0D7A8C]">
@@ -461,6 +535,84 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
         </div>
       </section>
 
+      {/* Technical FAQ Section (AEO & Voice Search) */}
+      <section className="py-16 sm:py-24 bg-white border-t border-gray-150">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F7FA] text-[#17A2B8] text-xs font-bold uppercase tracking-wider mb-3">
+              <CircleHelp className="w-3.5 h-3.5" /> Technical FAQ &amp; Procurement
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2C3E50]">
+              Frequently Asked Questions about {name}
+            </h2>
+            <p className="text-sm text-gray-500 mt-2">
+              Direct technical answers for plant engineers, formulation chemists, and maintenance directors
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {productFaqs.map((faq, idx) => (
+              <div key={idx} className="bg-[#F8FAFB] rounded-2xl border border-gray-200/80 shadow-xs overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full flex items-center justify-between p-5 sm:p-6 text-left transition-colors hover:bg-gray-100/70"
+                >
+                  <span className="font-bold text-sm sm:text-base text-[#2C3E50] pr-4">
+                    {faq.q}
+                  </span>
+                  <ChevronDown className={`w-5 h-5 text-[#17A2B8] shrink-0 transition-transform duration-200 ${openFaq === idx ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {openFaq === idx && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-150 bg-white">
+                        <div className="pl-3 border-l-2 border-[#17A2B8]">
+                          {faq.a}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category Bottom CTA */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#2C3E50] via-[#1E2B37] to-[#17A2B8] text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-[#5EEAD4] text-xs font-bold tracking-widest uppercase mb-4">
+            Custom Industrial Batches
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 leading-tight text-white">
+            Ready to Formulate with {name}?
+          </h2>
+          <p className="text-gray-300 text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+            Request an engineering datasheet, price quotation, or custom pilot batch synthesized at our Vadodara facility.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => { setModalMode('quote'); setIsModalOpen(true); }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#17A2B8] text-white font-bold rounded-xl hover:bg-[#138496] transition-all shadow-md w-full sm:w-auto min-h-[48px]"
+            >
+              Request a Quote Now
+            </button>
+            <button
+              onClick={() => { setModalMode('sample'); setIsModalOpen(true); }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/15 transition-all w-full sm:w-auto min-h-[48px]"
+            >
+              Request a Sample
+            </button>
+          </div>
+        </div>
+      </section>
 
       <QuoteModal
         isOpen={isModalOpen}

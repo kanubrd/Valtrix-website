@@ -4,25 +4,22 @@ import { Metadata } from 'next';
 import { ContactClient } from './contact-client';
 
 export const metadata: Metadata = {
-  title: 'Contact | Valtrix Advance Material Pvt. Ltd. | Vadodara Gujarat',
-  description: 'Get in touch with Valtrix Advance Material Pvt. Ltd. for advanced industrial additives, corrosion-resistant coatings, and chemical solutions. Located in Vadodara, Gujarat with ISO-certified innovation.',
+  title: 'Contact Valtrix | Advanced Materials Supplier & Quotes | Vadodara, Gujarat',
+  description: 'Get in touch with Valtrix Advance Material Pvt. Ltd., ISO 9001:2024 certified specialty chemical & industrial additive manufacturer in Vadodara, Gujarat. Request custom formulations, quotes, TDS/SDS datasheets, and trial samples.',
   keywords: [
+    'Advanced Materials Supplier Vadodara',
     'Valtrix Advance Material Pvt. Ltd.',
-    'Valtriks',
-    'Valtrixx',
-    'Waltrix',
-    'Baltrix',
-    'Valtrics',
-    'Valtrix contact',
-    'Valtriks contact',
-    'industrial additives Vadodara',
-    'contact valtrix',
     'chemical procurement quote',
-    'Vadodara Gujarat'
+    'industrial additives Vadodara',
+    'metalworking fluid manufacturer Gujarat',
+    'surface treatment chemicals India',
+    'custom chemical formulation quote',
+    'Vadodara chemical company',
+    'Valtrix contact'
   ],
   openGraph: {
-    title: 'Contact | Valtrix Advance Material Pvt. Ltd. | Vadodara Gujarat',
-    description: 'Get in touch with Valtrix Advance Material Pvt. Ltd. for advanced industrial additives, corrosion-resistant coatings, and chemical solutions. Located in Vadodara, Gujarat with ISO-certified innovation.',
+    title: 'Contact Valtrix | Advanced Materials Supplier & Quotes | Vadodara, Gujarat',
+    description: 'Get in touch with Valtrix Advance Material Pvt. Ltd., ISO 9001:2024 certified specialty chemical & industrial additive manufacturer in Vadodara, Gujarat. Request custom quotes, technical datasheets, and samples.',
     url: 'https://www.valtrixmaterials.com/contact',
     type: 'website',
   },
@@ -32,23 +29,62 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.valtrixmaterials.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Contact',
+        item: 'https://www.valtrixmaterials.com/contact'
+      }
+    ]
+  };
+
   const localBusinessJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Valtrix Advance Material Pvt. Ltd.',
-    description: 'Get in touch with Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) for advanced industrial additives, corrosion-resistant coatings, and chemical solutions. Located in Vadodara, Gujarat with ISO-certified innovation.',
+    description: 'Valtrix Advance Material Pvt. Ltd. delivers ISO 9001:2024 certified advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '318, Fortune Gateway, Chhani, Vadodara Industrial Area',
+      streetAddress: '318, Fortune Gateway, Chhani',
       addressLocality: 'Vadodara',
       addressRegion: 'Gujarat',
       postalCode: '390024',
       addressCountry: 'IN'
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '22.3486',
+      longitude: '73.1812'
+    },
+    hasMap: 'https://maps.google.com/?q=Valtrix+Advance+Material+Vadodara',
     telephone: '+91 98981 23983',
     email: 'info@valtrixmaterials.com',
     url: 'https://www.valtrixmaterials.com/contact',
-    certifications: 'ISO 9001:2015 Certified',
+    priceRange: '$$',
+    certifications: 'ISO 9001:2024 Certified',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'ISO 9001:2024 Quality Management Certification'
+      }
+    ],
+    knowsAbout: [
+      'Industrial Additives',
+      'Metalworking Coolants',
+      'Corrosion Inhibitors',
+      'Electroplating Brighteners',
+      'Surface Passivation'
+    ],
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
@@ -65,7 +101,7 @@ export default function ContactPage() {
         'name': 'Where is Valtrix Advance Material Pvt. Ltd. located?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Valtrix Advance Material Pvt. Ltd. is located at 318, Fortune Gateway, Chhani, Vadodara Industrial Area, Vadodara - 390024, Gujarat, India.'
+          'text': 'Valtrix Advance Material Pvt. Ltd. is located at 318, Fortune Gateway, Chhani, Vadodara - 390024, Gujarat, India.'
         }
       },
       {
@@ -81,7 +117,7 @@ export default function ContactPage() {
         'name': 'Is Valtrix ISO certified?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Yes, Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2015 certified manufacturer of industrial specialty chemicals, corrosion-resistant coatings, and custom additives.'
+          'text': 'Yes, Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified manufacturer of industrial specialty chemicals, corrosion-resistant coatings, and custom additives.'
         }
       },
       {
@@ -97,6 +133,10 @@ export default function ContactPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

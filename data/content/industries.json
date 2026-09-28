@@ -21,17 +21,18 @@
     ],
     "applications": [
       { "title": "Automotive Manufacturing", "description": "High-performance coatings and surface treatments for vehicle production lines and component manufacturing.", "image": "/automotive-manufacturing.png", "icon": "Car" },
-      { "title": "Maintenance & Repair", "description": "Specialized chemistry for automotive aftermarket, including rust treatment and corrosion prevention.", "image": "/maintenance-repair-v3.png", "icon": "Wrench" },
-      { "title": "General Industrial", "description": "Versatile solutions for diverse manufacturing operations across multiple industrial sectors.", "image": "/general-industrial-v2.png", "icon": "Factory" }
+      { "title": "Maintenance & Repair", "description": "Specialized chemistry for automotive aftermarket, including rust treatment and corrosion prevention.", "image": "/maintenance-repair-v4.webp", "icon": "Wrench" },
+      { "title": "General Industrial", "description": "Versatile solutions for diverse manufacturing operations across multiple industrial sectors.", "image": "/general-industrial-v3.webp", "icon": "Factory" }
     ],
     "applicationsSectionSubtitle": "Comprehensive solutions for automotive and general industrial needs",
     "segments": [
-      { "name": "OEM Automotive", "description": "Advanced coating systems and specialty chemicals for original equipment manufacturers", "image": "/oem-automotive-v2.png" },
-      { "name": "Aftermarket Solutions", "description": "Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications", "image": "/aftermarket-solutions-new.png" },
-      { "name": "Heavy Equipment", "description": "Durable protective coatings for construction and agricultural machinery", "image": "/heavy-equipment.png" }
+      { "name": "OEM Automotive", "description": "Advanced coating systems and specialty chemicals for original equipment manufacturers", "image": "/oem-automotive-v2.png", "icon": "Car" },
+      { "name": "Aftermarket", "description": "Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications", "image": "/aftermarket-solutions-new.png", "icon": "Wrench" },
+      { "name": "Heavy Equipment", "description": "Durable protective coatings for construction and agricultural machinery", "image": "/heavy-equipment.png", "icon": "Truck" }
     ],
     "segmentsSectionTitle": "Market Segments",
     "segmentsSectionSubtitle": "Tailored solutions for every segment of the automotive and industrial markets",
+    "segmentsSectionImage": "/market-segments-automotive.webp",
     "products": [
       { "name": "VAM RC 01", "category": "Rust Converter", "description": "Advanced rust converter that transforms rust into a stable, protective coating ready for painting.", "features": ["Fast-acting formula", "Long-lasting protection", "Easy application process"], "href": "/solutions?product=vam-rc-01" },
       { "name": "Polyols", "category": "Polyurethane Building Blocks", "description": "High-performance polyols for manufacturing polyurethane foams, coatings, adhesives, and sealants in automotive applications.", "features": ["Versatile applications", "Superior mechanical properties", "Excellent chemical resistance"], "href": "/solutions" },
@@ -49,7 +50,8 @@
     "tag": "METALWORKING",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.",
-    "listingImage": "/metalworking-category.avif",
+    "listingImage": "/fluids.webp",
+    "homeImage": "/metalworking-category.avif",
     "hero": { "image": "/metalworking-hero.png", "imageAlt": "Metal Working Fluids", "imageObjectFit": "object-contain", "heroTagline": null, "title": "Metal Working Fluids & Lubricants", "subtitle": "High-performance specialty chemicals designed to improve machining efficiency, reduce wear, and extend equipment life" },
     "overview": ["Metal Working Fluids (MWFs) and Lubricants are essential materials used in manufacturing and machining processes to improve efficiency, extend tool life, and produce high-quality finished products.", "Depending on the application, MWFs may be classified as straight oils, soluble oils, semi-synthetic fluids, or synthetic fluids, each offering different levels of cooling and lubrication.", "A good lubricant should possess suitable viscosity, thermal stability, oxidation resistance, anti-wear properties, and corrosion protection to ensure reliable machine performance and long service life."],
     "applications": [
@@ -59,12 +61,14 @@
     ],
     "applicationsSectionSubtitle": "Our metalworking solutions are designed for a wide range of industrial applications",
     "segments": [
-      { "name": "Soluble Oils", "description": "Balanced emulsions for general machining with excellent cooling and lubrication properties", "image": "/soluble-oils.png" },
-      { "name": "Semi-Synthetic Fluids", "description": "Hybrid formulations combining mineral oil and synthetic components for enhanced performance", "image": "/semi-synthetic-fluids.png" },
-      { "name": "Synthetic Fluids", "description": "Oil-free solutions offering superior cooling, cleanliness, and extended sump life", "image": "/synthetic-fluids.png" }
+      { "name": "Soluble Oils", "description": "Balanced emulsions for general machining with excellent cooling and lubrication properties", "image": "/soluble-oils.png", "icon": "Droplets" },
+      { "name": "Semi-Synthetic Fluids", "description": "Hybrid formulations combining mineral oil and synthetic components for enhanced performance", "image": "/semi-synthetic-fluids.png", "icon": "Layers" },
+      { "name": "Synthetic Fluids", "description": "Oil-free solutions offering superior cooling, cleanliness, and extended sump life", "image": "/synthetic-fluids.png", "icon": "ShieldCheck" }
     ],
     "segmentsSectionTitle": "Metalworking Fluid Solutions",
     "segmentsSectionSubtitle": "Comprehensive additive packages for all major metalworking fluid types",
+    "segmentsSectionImage": "/metalworking-solutions.webp",
+    "segmentsSectionAnimatedImage": "/metalworking-solutions-animated.webp",
     "products": [
       { "name": "VAMShield-90", "category": "Corrosion Inhibitor", "description": "Advanced corrosion protection for ferrous and non-ferrous metals in metalworking fluids.", "features": ["Long-lasting protection", "Low dosage required", "Multi-metal compatibility"], "href": "/solutions?product=vamshield-90" },
       { "name": "VAM HS-100", "category": "Lubricant Additive", "description": "Advanced multifunctional lubricant additive offering superior lime soap dispersion, emulsification, foam control, and corrosion inhibition.", "features": ["Lime soap dispersion", "Emulsification & Foam control", "Corrosion inhibition"], "href": "/solutions?product=vam-hs-100" }
@@ -81,7 +85,8 @@
     "tag": "ELECTROPLATING",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.",
-    "listingImage": "/electroplating-category.avif",
+    "listingImage": "/painter.webp",
+    "homeImage": "/electroplating-category.avif",
     "hero": { "image": "/electroplating-hero.png", "imageAlt": "Electroplating", "imageObjectFit": "object-contain", "heroTagline": "ELECTROPLATING SOLUTIONS", "title": "Electroplating & Brighteners", "subtitle": "Advanced specialty chemicals for superior surface finishing and electroplating applications" },
     "overview": ["Electroplating and Brighteners are essential components of modern surface engineering, widely used in the automotive, electronics, aerospace, construction, and consumer goods industries."],
     "applications": [
@@ -91,12 +96,14 @@
     ],
     "applicationsSectionSubtitle": "Our electroplating solutions serve diverse industries and applications",
     "segments": [
-      { "name": "Nickel Plating", "description": "High-quality nickel deposits with excellent corrosion resistance and decorative appeal", "image": "/nickel-plating.png" },
-      { "name": "Chrome Plating", "description": "Bright, durable chrome finishes for automotive and industrial applications", "image": "/chrome-plating.png" },
-      { "name": "Copper Plating", "description": "Conductive copper layers for electronics and decorative undercoats", "image": "/copper-plating.png" }
+      { "name": "Nickel Plating", "description": "High-quality nickel deposits with excellent corrosion resistance and decorative appeal", "image": "/nickel-plating.png", "icon": "Layers" },
+      { "name": "Chrome Plating", "description": "Bright, durable chrome finishes for automotive and industrial applications", "image": "/chrome-plating.png", "icon": "Sparkles" },
+      { "name": "Copper Plating", "description": "Conductive copper layers for electronics and decorative undercoats", "image": "/copper-plating.png", "icon": "Zap" }
     ],
     "segmentsSectionTitle": "Plating Solutions",
     "segmentsSectionSubtitle": "Comprehensive additive packages for all major plating processes",
+    "segmentsSectionImage": "/plating-solutions.webp",
+    "segmentsSectionAnimatedImage": "/plating-solutions-animated.webp",
     "products": [
       { "name": "SusCat-I", "category": "Levelling Agent", "description": "Advanced levelling agent for bright, smooth electroplated finishes with excellent throwing power.", "features": ["Superior surface levelling", "Bright lustrous finish", "Wide current density range"], "href": "/solutions?product=suscat-i" }
     ],
@@ -112,7 +119,7 @@
     "tag": "SURFACE TREATMENT",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.",
-    "listingImage": "/surface-treatment-category.avif",
+    "listingImage": "/surface-treatment-category.webp",
     "hero": { "image": "/surface-treatment-hero-new.png", "imageAlt": "Surface Treatment Technology", "imageObjectFit": "object-contain", "heroTagline": "SURFACE TREATMENT SOLUTIONS", "title": "Surface Treatment Technology", "subtitle": "Specialized chemistry for superior surface preparation, adhesion promotion, and protective coatings" },
     "overview": ["Surface Treatment is a manufacturing process used to improve the physical, chemical, and mechanical properties of a material's surface without significantly altering its core characteristics."],
     "applications": [
@@ -122,12 +129,14 @@
     ],
     "applicationsSectionSubtitle": "Comprehensive surface treatment solutions for diverse industrial needs",
     "segments": [
-      { "name": "Phosphate Conversion Coatings", "description": "Crystalline coatings that provide excellent paint adhesion and corrosion resistance", "image": "/phosphate-conversion-coatings.png" },
-      { "name": "Silane Pre-Treatment", "description": "Chrome-free surface treatment for superior adhesion and environmental compliance", "image": "/silane-pre-treatment.png" },
-      { "name": "Anodizing Solutions", "description": "Electrochemical processes for enhanced aluminum surface properties and appearance", "image": "/anodizing-solutions.png" }
+      { "name": "Phosphate Conversion Coatings", "description": "Crystalline coatings that provide excellent paint adhesion and corrosion resistance", "image": "/phosphate-conversion-coatings.png", "icon": "Layers" },
+      { "name": "Silane Pre-Treatment", "description": "Chrome-free surface treatment for superior adhesion and environmental compliance", "image": "/silane-pre-treatment.png", "icon": "Droplets" },
+      { "name": "Anodizing Solutions", "description": "Electrochemical processes for enhanced aluminum surface properties and appearance", "image": "/anodizing-solutions.png", "icon": "Sparkles" }
     ],
     "segmentsSectionTitle": "Treatment Technologies",
     "segmentsSectionSubtitle": "Advanced surface treatment processes for optimal performance",
+    "segmentsSectionImage": "/treatment-technologies.webp",
+    "segmentsSectionAnimatedImage": "/treatment-technologies-animated.webp",
     "products": [
       { "name": "Amino & Epoxy Silanes", "category": "Coupling Agents", "description": "Advanced silane coupling agents that enhance adhesion between organic polymers and inorganic substrates.", "features": ["Superior adhesion promotion", "Moisture resistance", "Improved mechanical properties"], "href": "/solutions" },
       { "name": "TOC Binders", "category": "Top of Cab Coatings", "description": "High-performance binders for temporary protective coatings with excellent weather resistance.", "features": ["Easy application and removal", "UV protection", "Long-term stability"], "href": "/solutions" }

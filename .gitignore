@@ -64,3 +64,6 @@ Thumbs.db
 .env*
 
 .vercel
+scratch/
+
+vcp_*

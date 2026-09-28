@@ -8,9 +8,10 @@ import { socialLinks } from '@/config/social';
 
 const footerLinks = {
   Company: [
-    { label: 'About Us',   href: '/about'      },
-    { label: 'Solutions',  href: '/solutions'   },
-    { label: 'Industries', href: '/industries'  },
+    { label: 'About Us',             href: '/about'                },
+    { label: 'Solutions',            href: '/solutions'            },
+    { label: 'Industrial Additives', href: '/industrial-additives' },
+    { label: 'Industries',           href: '/industries'           },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -149,19 +150,50 @@ export function Footer() {
 
       {/* Certifications strip */}
       <div className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16">
-          <div className="text-xs font-bold text-[#2C3E50] uppercase tracking-wider text-center w-full md:w-auto md:text-left mb-2 md:mb-0">
-            🛡️ Certifications & Quality Standards:
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-12">
+          <div className="text-xs font-bold text-[#2C3E50] uppercase tracking-wider text-center w-full lg:w-auto lg:text-left">
+            🛡️ Certifications &amp; Standards:
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             {/* ISO 9001 Badge */}
-            <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-xl border border-gray-150 shadow-sm hover:border-[#17A2B8]/40 transition-colors">
-              <svg className="w-6 h-6 text-[#17A2B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="flex items-center gap-2.5 bg-white px-3.5 py-2 rounded-xl border border-gray-200 shadow-sm hover:border-[#17A2B8]/40 transition-colors">
+              <svg className="w-5 h-5 text-[#17A2B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               <div className="text-left leading-none">
                 <div className="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Certified</div>
                 <div className="text-[12px] font-extrabold text-[#2C3E50] tracking-wide mt-0.5">ISO 9001:2024</div>
+              </div>
+            </div>
+
+            {/* ASTM Standard Tested */}
+            <div className="flex items-center gap-2.5 bg-white px-3.5 py-2 rounded-xl border border-gray-200 shadow-sm hover:border-[#17A2B8]/40 transition-colors">
+              <div className="w-5 h-5 rounded-full bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center text-[10px] font-black">
+                ✓
+              </div>
+              <div className="text-left leading-none">
+                <div className="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Validated</div>
+                <div className="text-[12px] font-extrabold text-[#2C3E50] tracking-wide mt-0.5">ASTM Standards</div>
+              </div>
+            </div>
+
+            {/* RoHS & REACH */}
+            <div className="flex items-center gap-2.5 bg-white px-3.5 py-2 rounded-xl border border-gray-200 shadow-sm hover:border-[#17A2B8]/40 transition-colors">
+              <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-[10px] font-black">
+                🌿
+              </div>
+              <div className="text-left leading-none">
+                <div className="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Eco-Compliant</div>
+                <div className="text-[12px] font-extrabold text-[#2C3E50] tracking-wide mt-0.5">RoHS &amp; REACH</div>
+              </div>
+            </div>
+
+            {/* Vadodara Plant */}
+            <div className="flex items-center gap-2.5 bg-white px-3.5 py-2 rounded-xl border border-gray-200 shadow-sm hover:border-[#17A2B8]/40 transition-colors">
+              <MapPin size={15} className="text-[#17A2B8]" />
+              <div className="text-left leading-none">
+                <div className="text-[9px] font-bold text-gray-500 uppercase tracking-wide">Manufacturing &amp; R&amp;D</div>
+                <div className="text-[12px] font-extrabold text-[#2C3E50] tracking-wide mt-0.5">Vadodara, Gujarat</div>
               </div>
             </div>
           </div>
@@ -177,7 +209,7 @@ export function Footer() {
             <Link href="/" className="inline-block mb-5 bg-white py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <Image 
                 src="/valtrix-logo.png" 
-                alt="Valtrix Advanced Materials Logo" 
+                alt="Valtrix Advance Material - ISO 9001:2024 Industrial Chemicals and Additives Vadodara" 
                 width={160} 
                 height={58} 
                 priority={false} 

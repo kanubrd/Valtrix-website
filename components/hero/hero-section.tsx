@@ -1,11 +1,11 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 // Dynamically import modals (loaded on first interaction)
 const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then((mod) => ({ default: mod.QuoteModal })), {
@@ -13,201 +13,271 @@ const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then(
   loading: () => null,
 });
 
-const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((mod) => ({ default: mod.DemoModal })), {
-  ssr: false,
-  loading: () => null,
-});
-
-const heroSlides = [
-  { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design', duration: 3000 },
-  { src: '/slide3.png',  alt: 'Sustainable green industrial plant', duration: 3000 },
-  { src: '/slide2-petri-dish.png', alt: 'Sustainable green chemistry and industrial technology', duration: 3000 },
-];
-
 export function HeroSection() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [isDemoOpen,  setIsDemoOpen]  = useState(false);
   const [mounted,     setMounted]     = useState(false);
-  const [slideIndex,  setSlideIndex]  = useState(0);
-
-  const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const nextSlide = useCallback(() => {
-    setProgress(0);
-    setSlideIndex((i) => (i + 1) % heroSlides.length);
-  }, []);
-  const prevSlide = () => {
-    setProgress(0);
-    setSlideIndex((i) => (i - 1 + heroSlides.length) % heroSlides.length);
-  };
-
-  // Auto-advance with per-slide durations
-  useEffect(() => {
-    if (isPaused) return;
-    const currentDuration = heroSlides[slideIndex].duration;
-    const tickInterval = 30; // ~33fps for smooth progress
-    const increment = (tickInterval / currentDuration) * 100;
-
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          nextSlide();
-          return 0;
-        }
-        return prev + increment;
-      });
-    }, tickInterval);
-
-    return () => clearInterval(timer);
-  }, [slideIndex, isPaused, nextSlide]);
 
   useEffect(() => { setMounted(true); }, []);
 
-  // Render placeholder during SSR & first client render to avoid hydration mismatch
-  if (!mounted) {
-    return (
-      <section style={{ background: '#FFFFFF', minHeight: '560px', paddingTop: '100px' }} className="overflow-hidden" />
-    );
-  }
 
   return (
     <>
-      <section style={{ background: '#FFFFFF' }} className="overflow-hidden">
-        {/* ── Full-width slideshow ── */}
+      <section style={{ background: '#FFFFFF' }} className="overflow-hidden pt-[100px] md:pt-0">
+        {/* ── Full-width hero banner image ── */}
         <div
+          className="w-full relative overflow-hidden aspect-[1916/821] md:aspect-auto md:h-[clamp(400px,48vw,620px)]"
           style={{
-            width: '100%',
-            height: 'clamp(300px, 45vw, 560px)',
-            marginTop: '100px',
-            position: 'relative',
-            overflow: 'hidden',
+            marginTop: '0px',
             boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            backgroundColor: '#0F172A',
           }}
         >
-          <AnimatePresence mode="sync">
+          <Image
+            src="/hero-banner-clean.webp"
+            alt="Valtrix Advance Material - Creating Novel Materials & Additives to Enhance Material Life"
+            fill
+            priority
+            sizes="100vw"
+            quality={100}
+            unoptimized
+            className="object-contain md:object-cover object-center"
+            style={{
+              filter: 'contrast(1.02) brightness(1.01)',
+            }}
+          />
+
+          {/* ── Animated Chemical Formulas in Middle-Right ── */}
+          <div
+            className="pointer-events-none absolute right-[6%] sm:right-[10%] md:right-[14%] lg:right-[16%] top-[48%] -translate-y-1/2 flex items-center gap-6 sm:gap-10 md:gap-14 lg:gap-16 select-none z-20"
+            aria-hidden="true"
+          >
+            {/* H2O Molecule - Gentle Dancing Float */}
             <motion.div
-              key={heroSlides[slideIndex].src}
-              initial={{ opacity: 0, scale: 1.08 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.04 }}
-              transition={{ duration: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
+              animate={{
+                y: [-7, 6, -9, 5, -7],
+                x: [-5, 6, -4, 5, -5],
+                rotate: [-2.5, 3, -1.8, 2.2, -2.5],
+                scale: [1, 1.04, 0.97, 1.03, 1],
               }}
+              transition={{
+                duration: 6.8,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="flex flex-col items-center filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] drop-shadow-[0_0_14px_rgba(255,255,255,0.65)]"
             >
-              {/* Subtle Ken Burns zoom while slide is active */}
-              <motion.div
-                initial={{ scale: 1 }}
-                animate={{ scale: 1.06 }}
-                transition={{
-                  duration: heroSlides[slideIndex].duration / 1000 + 1.4,
-                  ease: 'linear',
-                }}
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+              <svg
+                viewBox="0 0 160 140"
+                className="w-16 sm:w-24 md:w-32 lg:w-40 h-auto"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <Image
-                  src={heroSlides[slideIndex].src}
-                  alt={heroSlides[slideIndex].alt}
-                  fill
-                  priority={slideIndex === 0}
-                  fetchPriority={slideIndex === 0 ? 'high' : 'low'}
-                  quality={85}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px"
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                    imageRendering: '-webkit-optimize-contrast',
-                    WebkitFontSmoothing: 'antialiased',
-                    MozOsxFontSmoothing: 'grayscale',
-                    backfaceVisibility: 'hidden',
-                    transform: 'translateZ(0)',
-                    filter: 'contrast(1.08) brightness(1.03) saturate(1.05)',
-                    WebkitFilter: 'contrast(1.08) brightness(1.03) saturate(1.05)',
-                  }}
-                  unoptimized={false}
+                {/* H2O Text */}
+                <text
+                  x="80"
+                  y="34"
+                  textAnchor="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="32"
+                  fontWeight="600"
+                  letterSpacing="1"
+                >
+                  H<tspan fontSize="20" dy="8">2</tspan><tspan fontSize="32" dy="-8">O</tspan>
+                </text>
+
+                {/* Central Oxygen */}
+                <text
+                  x="80"
+                  y="82"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="30"
+                  fontWeight="400"
+                >
+                  O
+                </text>
+
+                {/* Left Bond */}
+                <line
+                  x1="66"
+                  y1="90"
+                  x2="48"
+                  y2="108"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
                 />
-              </motion.div>
+
+                {/* Left Hydrogen */}
+                <text
+                  x="36"
+                  y="120"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="28"
+                  fontWeight="400"
+                >
+                  H
+                </text>
+
+                {/* Right Bond */}
+                <line
+                  x1="94"
+                  y1="90"
+                  x2="112"
+                  y2="108"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+
+                {/* Right Hydrogen */}
+                <text
+                  x="124"
+                  y="120"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="28"
+                  fontWeight="400"
+                >
+                  H
+                </text>
+              </svg>
             </motion.div>
-          </AnimatePresence>
 
-          {/* Prev / Next arrows - hidden on mobile, shown on sm+ */}
-          <button
-            onClick={prevSlide}
-            aria-label="Previous slide"
-            style={{
-              position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)',
-              width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(255,255,255,0.85)', border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
-            }}
-          >
-            <ChevronLeft size={18} color="#2C3E50" />
-          </button>
-          <button
-            onClick={nextSlide}
-            aria-label="Next slide"
-            style={{
-              position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)',
-              width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(255,255,255,0.85)', border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
-            }}
-          >
-            <ChevronRight size={18} color="#2C3E50" />
-          </button>
-
-          {/* Progress bar indicators */}
-          <div style={{
-            position: 'absolute', bottom: 20, left: '50%',
-            transform: 'translateX(-50%)', display: 'flex', gap: 6, zIndex: 10,
-          }}>
-            {heroSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => { setProgress(0); setSlideIndex(i); }}
-                aria-label={`Go to slide ${i + 1}`}
-                style={{
-                  width: 48,
-                  height: 4,
-                  borderRadius: 2,
-                  background: 'rgba(255,255,255,0.35)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: 0,
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'opacity 0.3s ease',
-                  opacity: i === slideIndex ? 1 : 0.7,
-                }}
+            {/* CO2 Molecule - Gentle Dancing Float (offset timing) */}
+            <motion.div
+              animate={{
+                y: [5, -7, 4, -5, 5],
+                x: [4, -5, 5, -4, 4],
+                rotate: [2, -2.5, 1.8, -1.8, 2],
+                scale: [0.99, 1.02, 1.04, 0.98, 0.99],
+              }}
+              transition={{
+                duration: 7.2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.5,
+              }}
+              className="flex flex-col items-center filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] drop-shadow-[0_0_14px_rgba(255,255,255,0.65)]"
+            >
+              <svg
+                viewBox="0 0 170 120"
+                className="w-18 sm:w-26 md:w-34 lg:w-42 h-auto"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span
-                  style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    height: '100%',
-                    borderRadius: 2,
-                    background: '#17A2B8',
-                    transition: i === slideIndex ? 'width 30ms linear' : 'width 0.3s ease',
-                    width: i === slideIndex ? `${Math.min(progress, 100)}%` : i < slideIndex ? '100%' : '0%',
-                  }}
+                {/* CO2 Text */}
+                <text
+                  x="85"
+                  y="34"
+                  textAnchor="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="32"
+                  fontWeight="600"
+                  letterSpacing="1"
+                >
+                  CO<tspan fontSize="20" dy="8">2</tspan>
+                </text>
+
+                {/* Left Oxygen */}
+                <text
+                  x="26"
+                  y="85"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="30"
+                  fontWeight="400"
+                >
+                  O
+                </text>
+
+                {/* Left Double Bond */}
+                <line
+                  x1="43"
+                  y1="80"
+                  x2="67"
+                  y2="80"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
                 />
-              </button>
-            ))}
+                <line
+                  x1="43"
+                  y1="90"
+                  x2="67"
+                  y2="90"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+
+                {/* Center Carbon */}
+                <text
+                  x="85"
+                  y="85"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="30"
+                  fontWeight="400"
+                >
+                  C
+                </text>
+
+                {/* Right Double Bond */}
+                <line
+                  x1="103"
+                  y1="80"
+                  x2="127"
+                  y2="80"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="103"
+                  y1="90"
+                  x2="127"
+                  y2="90"
+                  stroke="#FFFFFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+
+                {/* Right Oxygen */}
+                <text
+                  x="144"
+                  y="85"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#FFFFFF"
+                  fontFamily="var(--font-outfit), system-ui, sans-serif"
+                  fontSize="30"
+                  fontWeight="400"
+                >
+                  O
+                </text>
+              </svg>
+            </motion.div>
           </div>
 
-          {/* Bottom gradient fade */}
+          {/* Bottom gradient fade (desktop only so mobile image details remain 100% visible and uncropped) */}
           <div
+            className="hidden md:block pointer-events-none absolute bottom-0 left-0 right-0 h-28"
             style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
               background: 'linear-gradient(to bottom, transparent, #FFFFFF)',
-              pointerEvents: 'none',
             }}
           />
         </div>
@@ -243,7 +313,7 @@ export function HeroSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Creating Novel Materials & Additives to{' '}
+              Valtrix — Creating Novel Materials & Additives to{' '}
               <span style={{ color: '#17A2B8' }}>Enhance Material Life.</span>
             </motion.h1>
 
@@ -253,14 +323,27 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.65 }}
             >
-              <div className="flex flex-col sm:flex-row gap-4">
+              <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-6">
+                Valtrix engineers custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments in Vadodara to extend machinery life and prevent unplanned downtime.
+              </p>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <motion.button
+                  whileHover={{ y: -2, scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsQuoteOpen(true)}
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-white text-base tracking-wide rounded-xl shadow-md hover:shadow-lg transition-all min-h-[56px] text-center"
+                  style={{ background: '#17A2B8' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#0D7A8C')}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#17A2B8')}
+                >
+                  <span>Request a Quote Now</span>
+                  <ArrowRight size={18} />
+                </motion.button>
                 <Link
                   href="/solutions"
-                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] shadow-sm hover:shadow"
-                  style={{ background: '#17A2B8', borderRadius: '12px' }}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-[#2C3E50] bg-[#F8FAFB] hover:bg-[#E6F7FA] border border-gray-200 hover:border-[#17A2B8]/40 rounded-xl text-base tracking-wide transition-all min-h-[56px] text-center"
                 >
                   Explore Solutions
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </motion.div>
@@ -272,9 +355,6 @@ export function HeroSection() {
 
       {/* ── Quote Modal (dynamically loaded) ── */}
       {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />}
-
-      {/* ── Demo Modal (dynamically loaded) ── */}
-      {mounted && <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} onGetStarted={() => { setIsDemoOpen(false); setIsQuoteOpen(true); }} />}
     </>
   );
 }

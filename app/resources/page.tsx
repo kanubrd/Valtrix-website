@@ -7,18 +7,19 @@ import { Reveal } from '@/components/animations/reveal';
 import { articlesList } from '@/data/articles';
 
 export const metadata: Metadata = {
-  title: 'Resources & Insights - Advanced Materials Science',
-  description: 'Explore VAM VALTRIX resources: industry insights, safety guidelines, and SDS/TDS document indexes for metallurgy and industrial chemistry.',
+  title: 'Technical Resources, Guides & TDS/SDS Library | Valtrix Vadodara',
+  description: 'Explore Valtrix technical articles, chemical safety guidelines, tribology research, and TDS/SDS datasheets from our Vadodara materials engineering team.',
   keywords: [
     'materials science insights',
     'chemical industry blog',
-    'sourcing guides',
+    'tribology guides',
     'sds database index',
-    'valtrix resources'
+    'valtrix resources Vadodara',
+    'technical datasheets'
   ],
   openGraph: {
-    title: 'Resources & Insights | VAM VALTRIX',
-    description: 'Explore VAM VALTRIX resources: industry insights, safety guidelines, and SDS/TDS document indexes for metallurgy and industrial chemistry.',
+    title: 'Technical Resources, Guides & TDS/SDS Library | Valtrix Vadodara',
+    description: 'Explore Valtrix technical articles, chemical safety guidelines, tribology research, and TDS/SDS datasheets from our Vadodara materials engineering team.',
     url: 'https://www.valtrixmaterials.com/resources',
     type: 'website',
   },

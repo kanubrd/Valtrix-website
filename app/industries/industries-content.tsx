@@ -22,21 +22,21 @@ const fallbackIndustries: IndustryListing[] = [
     title: 'Metal Working Fluids & Lubricants',
     tag: 'METALWORKING',
     description: 'High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.',
-    listingImage: '/metalworking-category.avif',
+    listingImage: '/fluids.webp',
   },
   {
     slug: 'electroplating',
     title: 'Electroplating & Brighteners',
     tag: 'ELECTROPLATING',
     description: 'Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.',
-    listingImage: '/electroplating-category.avif',
+    listingImage: '/painter.webp',
   },
   {
     slug: 'surface-treatment',
     title: 'Surface Treatment',
     tag: 'SURFACE TREATMENT',
     description: 'Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.',
-    listingImage: '/surface-treatment-category.avif',
+    listingImage: '/surface-treatment-category.webp',
   },
 ];
 

@@ -1,10 +1,12 @@
 import dynamic from 'next/dynamic';
 import { HeroSection } from '@/components/hero/hero-section';
+import { CertificationShowcase } from '@/components/sections/certification-showcase';
 import { TestimonialsSkeleton } from '@/components/skeletons/testimonials-skeleton';
 import { CTASkeleton } from '@/components/skeletons/cta-skeleton';
 import { PrefetchDynamicSections } from '@/components/prefetch-dynamic-sections';
 import { HomeIndustriesSection } from '@/components/sections/home-industries';
 import { getIndustries } from '@/lib/content-utils';
+import { Metadata } from 'next';
 
 // Lazy-load below-the-fold sections — reduces initial JS bundle
 const TestimonialsSection = dynamic(
@@ -17,33 +19,50 @@ const CTABanner = dynamic(
   { ssr: true, loading: () => <CTASkeleton /> }
 );
 
-import { Metadata } from 'next';
-
 export const metadata: Metadata = {
-  title: 'Valtrix Advance Material Pvt. Ltd. | Industrial Additives & Coatings Vadodara',
-  description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat. ISO 9001:2015 certified.',
+  title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
+  description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
   keywords: [
+    'Valtrix',
+    'Valtrix Advance Material',
+    'Valtrix Advance Materials',
     'Valtrix Advance Material Pvt. Ltd.',
-    'Valtriks',
-    'Valtrixx',
-    'Waltrix',
-    'Baltrix',
-    'Valtrics',
-    'industrial additives',
+    'Valtrix Materials',
+    'Valtrix Official Website',
+    'Valtrix India',
+    'Valtrix Vadodara',
+    'Valtrix Gujarat',
+    'Valtrix Chemicals',
+    'VAM Valtrix',
+    'Advanced Materials Supplier Vadodara',
+    'industrial additives Vadodara',
+    'metalworking fluids manufacturer',
+    'specialty chemicals Gujarat',
     'corrosion resistant coatings',
     'Rust Converter VAM RC 01',
     'Polyurethane Building Blocks',
     'High Build Coatings',
-    'Vadodara Gujarat'
+    'ISO 9001:2024 chemical company'
   ],
   openGraph: {
-    title: 'Valtrix Advance Material Pvt. Ltd. | Industrial Additives & Coatings Vadodara',
-    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat. ISO 9001:2015 certified.',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
+    siteName: 'Valtrix',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additives and specialty materials.',
   },
   alternates: {
     canonical: 'https://www.valtrixmaterials.com',
+    languages: {
+      'en-IN': 'https://www.valtrixmaterials.com',
+      'en-US': 'https://www.valtrixmaterials.com',
+      'x-default': 'https://www.valtrixmaterials.com',
+    },
   },
 };
 
@@ -52,6 +71,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      <CertificationShowcase />
       <TestimonialsSection />
       <CTABanner />
       <HomeIndustriesSection industries={industries} />

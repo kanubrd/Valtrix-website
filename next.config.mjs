@@ -5,7 +5,6 @@ const isDev = process.env.NODE_ENV === 'development';
 
 const apiOrigins = [
   'http://localhost:5000',
-  'https://valtrix-backend-y7df.vercel.app',
 ].join(' ');
 
 const scriptSrc = isDev
@@ -15,8 +14,8 @@ const scriptSrc = isDev
 const nextConfig = {
   poweredByHeader: false,
   
-  // ── Generate standalone output for smaller deployments ────────────────
-  output: 'standalone',
+  // ── Standalone output for Docker/container deployments if requested ─
+  output: process.env.STANDALONE === 'true' ? 'standalone' : undefined,
 
   // ── Build performance optimizations ──────────────────────────────────
   experimental: {
@@ -24,24 +23,8 @@ const nextConfig = {
     optimizePackageImports: [
       'lucide-react',
       'framer-motion',
-      '@radix-ui/react-dialog',
-      '@radix-ui/react-dropdown-menu',
-      '@radix-ui/react-navigation-menu',
-      '@radix-ui/react-popover',
-      '@radix-ui/react-scroll-area',
-      '@radix-ui/react-select',
-      '@radix-ui/react-separator',
-      '@radix-ui/react-slot',
-      '@radix-ui/react-tabs',
-      '@radix-ui/react-toast',
-      '@radix-ui/react-tooltip',
     ],
-    // Optimize CSS
-    optimizeCss: true,
   },
-  
-  // ── External packages (moved from experimental) ──────────────────────
-  serverExternalPackages: ['three', '@react-three/fiber', '@react-three/drei'],
 
   // ── Compiler optimisations ──────────────────────────────────────────
   compiler: {
@@ -55,10 +38,6 @@ const nextConfig = {
   // ── Compression ──────────────────────────────────────────────────────
   compress: true,
   
-  // ── Turbopack configuration ──────────────────────────────────────────
-  turbopack: {
-    root: './',
-  },
 
   // ── Image optimisation ──────────────────────────────────────────────
   images: {
@@ -68,10 +47,9 @@ const nextConfig = {
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     minimumCacheTTL: 604800, // 7 days
     dangerouslyAllowSVG: false,
-    qualities: [100, 95, 90, 85, 75], // 8K quality support with 100
+    qualities: [100, 95, 90, 85, 80, 75], // 8K quality support with 100
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'valtrix-backend-y7df.vercel.app' },
     ],
   },
 
@@ -82,7 +60,7 @@ const nextConfig = {
       {
         source: '/:path*',
         has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
-        destination: 'https://vamvaltrix.com/:path*',
+        destination: 'https://www.valtrixmaterials.com/:path*',
         permanent: true,
       },
     ];
@@ -102,9 +80,9 @@ const nextConfig = {
               scriptSrc,
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              `img-src 'self' data: blob: https://images.unsplash.com https://valtrix-backend-y7df.vercel.app`,
+              `img-src 'self' data: blob: https://images.unsplash.com https://*.google.com https://*.gstatic.com`,
               `connect-src 'self' ${apiOrigins} https://www.google.com`,
-              "frame-src 'self' https://www.google.com",
+              "frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com https://*.gstatic.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
@@ -132,25 +110,31 @@ const nextConfig = {
           { key: 'X-XSS-Protection',             value: '1; mode=block' },
         ],
       },
-      // Aggressive caching for static assets (they are content-hashed by Next.js)
-      {
-        source: '/_next/static/(.*)',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
-      // No cache for favicon to ensure instant updates
+      // Favicon: standard stable cache & cross-origin access for Googlebot-Favicon / search engines
       {
         source: '/favicon.ico',
         headers: [
-          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=43200' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
         ],
       },
-      // Cache local images for 1 day
+      // Web Manifest
       {
-        source: '/:file(.*\\.(?:jpg|jpeg|png|gif|webp|avif|svg))',
+        source: '/manifest.json',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=43200' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
+      // Cache local images & icons with cross-origin access
+      {
+        source: '/:file(.*\\.(?:ico|jpg|jpeg|png|gif|webp|avif|svg))',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=43200' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
         ],
       },
     ];

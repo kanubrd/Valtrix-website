@@ -32,6 +32,8 @@ export function CookieConsent() {
     <AnimatePresence>
       {showBanner && (
         <motion.div
+          role="region"
+          aria-label="Cookie consent banner"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
@@ -41,8 +43,8 @@ export function CookieConsent() {
           <div className="bg-[#2C3E50]/95 backdrop-blur-md text-white p-6 rounded-2xl border border-white/10 shadow-2xl relative">
             <button
               onClick={handleReject}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-              aria-label="Close"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1 rounded-lg"
+              aria-label="Dismiss cookie notice"
             >
               <X size={18} />
             </button>
